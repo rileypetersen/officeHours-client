@@ -9,8 +9,8 @@ export class App extends Component {
       <div>
         <BrowserRouter>
           <div>
-
-            <Route exact="exact" path="/" component={  }/>
+            
+            {/* <Route exact="exact" path="/" component={  }/> */}
  
           </div>
         </BrowserRouter>
