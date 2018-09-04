@@ -1,0 +1,12 @@
+.register-form {
+    height: 100%;
+}
+
+.register-form > div {
+    height: '100%';
+}
+
+
+.register-form > div > div {
+    max-width: 450;
+}
