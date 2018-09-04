@@ -13,10 +13,9 @@ export class App extends Component {
       <div>
         <BrowserRouter>
           <div className="App">
-			  Currently Under Construction
             <Switch>
-				{/* <Route exact path="/" component={() => <Redirect to="/login" />} />
-              	<Route path="/login" component={ Login }/> */}
+				      <Route exact path="/" component={() => <Redirect to="/login" />} />
+              <Route path="/login" component={ Login }/>
 			  	{/* <Route path="/register" component={ Register }/> */}
             </Switch>
           </div>

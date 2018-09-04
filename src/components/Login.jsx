@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import './Login.css';
 // import { userLogin } from '../state/actions/auth';
 
 
@@ -21,56 +23,35 @@ class Login extends Component {
 
   render () {
     return (
-      <section className="hero is-medium is-dark is-bold">
-        <div className="hero-body">
-          <div className="container">
-            <div className="columns">
-              <div className="column is-4-desktop is-offset-4-desktop">
-                <form onSubmit={this.handleLogin}>
-                  <div className="field">
-                    <p className="control">
-                      <input
-                        className="input"
-                        name="email"
-                        type="email"
-                        placeholder="Email"
-                        id="email"
-                        value={this.state.email}
-                        onChange={e => this.handleChange(e)}
-                        required
-                      />
-                    </p>
-                  </div>
-                  <div className="field">
-                    <p className="control">
-                      <input
-                        className="input"
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        id="password"
-                        value={this.state.password}
-                        onChange={e => this.handleChange(e)}                        
-                        required
-                      />
-                    </p>
-                  </div>
-                  <div className="control">
-                    <button className="button is-primary is-fullwidth">Log In</button>
-                  </div>
-                  {
-                    this.props.showLoginError ? (
-                      <p id="error" className="help is-danger">
-                        Email or password is incorrect.
-                      </p>
-                    ) : null
-                  }
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className='login-form'>
+        <Grid textAlign='center' verticalAlign='middle'>
+          <Grid.Column>
+            <Header as='h2' textAlign='center'>
+              <Image src='/oh.jpg' /> Login to your account
+            </Header>
+            <Form size='large'>
+              <Segment raised>
+                <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+                <Form.Input
+                  fluid
+                  icon='lock'
+                  iconPosition='left'
+                  placeholder='Password'
+                  type='password'
+                />
+
+                <Button animated='fade' color='purple' fluid size='large'>
+                  <Button.Content visible>Login</Button.Content>
+                  <Button.Content hidden>LOGIN</Button.Content>
+                </Button>
+              </Segment>
+            </Form>
+            <Message>
+              New to Office Hours? <a href='#'>Register</a>
+            </Message>
+          </Grid.Column>
+        </Grid>
+      </div>
     );
   };
 };
