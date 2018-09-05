@@ -15,7 +15,7 @@ export class App extends Component {
         <BrowserRouter>
           <div className="App">
             <Switch>
-				      <Route exact path="/" component={() => <Redirect to="/login" />} />
+				      <Route exact path="/" component={ () => <Redirect to="/login" /> } />
               <Route exact path="/login" component={ Login }/>
 			  	    <Route exact path="/register" component={ Register }/>
             </Switch>
