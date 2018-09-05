@@ -25,14 +25,14 @@ class Register extends Component {
     };
 
     // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE
-    handleLogin = event => {
+    handleRegister = event => {
         event.preventDefault();
-        this.props.userLogin(this.state, this.props.history);
+        this.props.userRegister(this.state, this.props.history);
     };
 
     render () {
         return (
-            <div className='login-form'>
+            <div className='register-form'>
                 <Grid textAlign='center' verticalAlign='middle'>
                     <Grid.Column>
                         <Header as='h2' textAlign='center'>
