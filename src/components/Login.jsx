@@ -33,14 +33,18 @@ class Login extends Component {
               <Segment raised>
                 <Form.Input 
                   fluid
+                  required
+                  label='User Name'
                   name='user_name'
                   icon='user' 
                   iconPosition='left' 
-                  placeholder='User Name'
+                  placeholder='user.name'
                   onChange={ (e) => this.handleChange(e) }
                 />
                 <Form.Input
                   fluid
+                  required
+                  label='Password'
                   name='password'
                   icon='lock'
                   iconPosition='left'
