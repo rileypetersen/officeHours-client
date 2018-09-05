@@ -21,7 +21,6 @@ class Register extends Component {
 
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
-        console.log(this.state)
     };
 
     // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE

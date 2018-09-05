@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Login.css';
 // import { userLogin } from '../state/actions/auth';
 
@@ -9,7 +9,8 @@ import './Login.css';
 class Login extends Component {
   state = {
     user_name: '',
-    password: ''
+    password: '',
+    visible: true
   };
 
   handleChange = event => {
@@ -23,6 +24,7 @@ class Login extends Component {
 
   render () {
     return (
+    
       <div className='login-form-desktop'>
         <Grid textAlign='center' verticalAlign='middle'>
           <Grid.Column>
@@ -64,6 +66,7 @@ class Login extends Component {
           </Grid.Column>
         </Grid>
       </div>
+    
     );
   };
 };
