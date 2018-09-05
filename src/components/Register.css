@@ -1,12 +1,16 @@
 .register-form {
     height: 100%;
+    padding: 10vh;
 }
 
 .register-form > div {
-    height: '100%';
+    height: 100%;
 }
 
 
 .register-form > div > div {
-    max-width: 450;
+    max-width: 650px;
 }
+
+  
+  
