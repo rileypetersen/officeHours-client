@@ -27,7 +27,8 @@ class Register extends Component {
     // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
     handleRegister = event => {
         event.preventDefault();
-        this.props.userRegister(this.state, this.props.history);
+        console.log(this.state)
+        // this.props.userRegister(this.state, this.props.history);
     };
 
     render () {
@@ -38,7 +39,7 @@ class Register extends Component {
                         <Header as='h2' textAlign='center'>
                             <Image src='/oh.jpg' /> Register your new account
                         </Header>
-                        <Form size='large'>
+                        <Form size='large' onSubmit={ this.handleRegister }>
                             <Segment raised>
                                 <Form.Group widths='equal'>
                                     <Form.Input 

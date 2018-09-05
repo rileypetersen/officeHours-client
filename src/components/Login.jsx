@@ -16,10 +16,11 @@ class Login extends Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
-
+  
   handleLogin = event => {
     event.preventDefault();
-    this.props.userLogin(this.state, this.props.history);
+    console.log(this.state)
+    // this.props.userLogin(this.state, this.props.history);
   };
 
   render () {
@@ -31,9 +32,10 @@ class Login extends Component {
             <Header as='h2' textAlign='center'>
               <Image src='/oh.jpg' /> Login to your account
             </Header>
-            <Form size='large'>
+            <Form size='large' onSubmit={ this.handleLogin }>
               <Segment raised>
                 <Form.Input 
+                  value={ this.state.value }
                   fluid
                   required
                   label='User Name'
