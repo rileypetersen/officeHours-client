@@ -5,7 +5,7 @@ import { Dimmer, Loader, Transition } from 'semantic-ui-react';
 
 import Login from './components/Login';
 import Register from './components/Register';
-// import Home from './components/Home';
+import Home from './components/Home';
 
 
 export class App extends Component {
@@ -35,7 +35,7 @@ export class App extends Component {
               <Route exact path="/" component={ () => <Redirect to="/login" /> } />
               <Route path="/login" component={ Login }/>
               <Route path="/register" component={ Register }/>
-              {/* <Route path="/home" component={ Home }/> */}
+              <Route path="/home" component={ Home }/>
               
             </Switch>
           </BrowserRouter>
