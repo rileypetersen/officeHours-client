@@ -34,8 +34,7 @@ class Login extends Component {
             </Header>
             <Form size='large' onSubmit={ this.handleLogin }>
               <Segment raised>
-                <Form.Input 
-                  value={ this.state.value }
+                <Form.Input
                   fluid
                   required
                   label='User Name'

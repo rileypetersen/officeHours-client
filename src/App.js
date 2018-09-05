@@ -5,6 +5,7 @@ import { Dimmer, Loader, Transition } from 'semantic-ui-react';
 
 import Login from './components/Login';
 import Register from './components/Register';
+// import Home from './components/Home';
 
 
 export class App extends Component {
@@ -17,7 +18,7 @@ export class App extends Component {
 
   componentDidMount() {
     // mocks api call...
-    setTimeout(() => this.setState({ isLoading: false }), 1000);
+    setTimeout(() => this.setState({ isLoading: false }), 500);
   }
 
   render() {
@@ -34,6 +35,8 @@ export class App extends Component {
               <Route exact path="/" component={ () => <Redirect to="/login" /> } />
               <Route path="/login" component={ Login }/>
               <Route path="/register" component={ Register }/>
+              {/* <Route path="/home" component={ Home }/> */}
+              
             </Switch>
           </BrowserRouter>
         </div>

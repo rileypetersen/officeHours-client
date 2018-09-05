@@ -64,7 +64,6 @@ class Register extends Component {
                                         name='user_name'
                                         label='Username'
                                         fluid 
-                                        icon='user'
                                         iconPosition='left' 
                                         placeholder='User.Name'
                                         onChange={(e) => this.handleChange(e)}
@@ -75,9 +74,8 @@ class Register extends Component {
                                         name='title'
                                         label='Title'
                                         fluid
-                                        icon=''
                                         iconPosition='left'
-                                        placeholder='title'
+                                        placeholder='Director'
                                         onChange={(e) => this.handleChange(e)}
                                     />    
                                 </Form.Group>
@@ -91,13 +89,12 @@ class Register extends Component {
                                         onChange={ (e) => this.handleChange(e) }
                                     /> */}
 
-                                <label>Brief Description</label>
                                     <Form.Input
                                         required
+                                        label='Brief Description'
                                         name='short_description'
                                         control={TextArea}                    
                                         fluid
-                                        icon=''
                                         iconPosition='left'
                                         placeholder='A brief snippet about you...'
                                         onChange={ (e) => this.handleChange(e) }
@@ -134,10 +131,10 @@ class Register extends Component {
                                         onChange={ (e) => this.handleChange(e) }
                                     /> */}
                                 <Form.Group widths='equal'>                                
-                                    <label>Password</label>                
                                         <Form.Input
                                             required
                                             name='password'
+                                            label='Password'
                                             fluid
                                             icon='lock'
                                             iconPosition='left'
@@ -145,11 +142,11 @@ class Register extends Component {
                                             type='password'
                                             onChange={ (e) => this.handleChange(e) }
                                         />
-
-                                    <label>Re-Enter Password</label>                                
+                           
                                     <Form.Input
                                         required
                                         name='password2'
+                                        label='Re-Enter Password'
                                         fluid
                                         icon='lock'
                                         iconPosition='left'
