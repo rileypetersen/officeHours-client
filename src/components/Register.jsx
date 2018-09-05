@@ -25,6 +25,7 @@ class Register extends Component {
     };
 
     // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE
+    // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
     handleRegister = event => {
         event.preventDefault();
         this.props.userRegister(this.state, this.props.history);
@@ -32,11 +33,11 @@ class Register extends Component {
 
     render () {
         return (
-            <div className='register-form'>
+            <div className='register-form-desktop'>
                 <Grid textAlign='center' verticalAlign='middle'>
                     <Grid.Column>
                         <Header as='h2' textAlign='center'>
-                            <Image src='/oh.jpg' /> Register
+                            <Image src='/oh.jpg' /> Register your new account
                         </Header>
                         <Form size='large'>
                             <Segment raised>
@@ -81,14 +82,14 @@ class Register extends Component {
                                     />    
                                 </Form.Group>
 
-                                <label>Profile Image URL</label>
+                                {/* <label>Profile Image URL</label>
                                     <Input
                                         name='profile_img_url'
                                         fluid
                                         label='http://' 
                                         placeholder='profile-img-url.com'
                                         onChange={ (e) => this.handleChange(e) }
-                                    />
+                                    /> */}
 
                                 <label>Brief Description</label>
                                     <Form.Input
@@ -102,7 +103,7 @@ class Register extends Component {
                                         onChange={ (e) => this.handleChange(e) }
                                     />
 
-                                <label>In-Depth Description</label>                
+                                {/* <label>In-Depth Description</label>                
                                     <Form.Input
                                         required
                                         name='long_description'
@@ -131,12 +132,24 @@ class Register extends Component {
                                         label='http://' 
                                         placeholder='mysite.com' 
                                         onChange={ (e) => this.handleChange(e) }
-                                    />
+                                    /> */}
+                                <Form.Group widths='equal'>                                
+                                    <label>Password</label>                
+                                        <Form.Input
+                                            required
+                                            name='password'
+                                            fluid
+                                            icon='lock'
+                                            iconPosition='left'
+                                            placeholder='Password'
+                                            type='password'
+                                            onChange={ (e) => this.handleChange(e) }
+                                        />
 
-                                <label>Password</label>                
+                                    <label>Re-Enter Password</label>                                
                                     <Form.Input
                                         required
-                                        name='password'
+                                        name='password2'
                                         fluid
                                         icon='lock'
                                         iconPosition='left'
@@ -144,18 +157,8 @@ class Register extends Component {
                                         type='password'
                                         onChange={ (e) => this.handleChange(e) }
                                     />
-
-                                <label>Re-Enter Password</label>                                
-                                <Form.Input
-                                    required
-                                    name='password2'
-                                    fluid
-                                    icon='lock'
-                                    iconPosition='left'
-                                    placeholder='Password'
-                                    type='password'
-                                    onChange={ (e) => this.handleChange(e) }
-                                />
+                                </Form.Group>
+                                
 
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>

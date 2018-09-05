@@ -1,14 +1,14 @@
-.register-form {
+.register-form-desktop {
     height: 100%;
     padding: 10vh;
 }
 
-.register-form > div {
+.register-form-desktop > div {
     height: 100%;
 }
 
 
-.register-form > div > div {
+.register-form-desktop > div > div {
     max-width: 650px;
 }
 
