@@ -1,12 +1,12 @@
-.login-form {
+.login-form-desktop {
   height: 100%;
   padding: 25vh;
 }
 
-.login-form > div {
+.login-form-desktop > div {
   height: 100%;
 }
 
-.login-form > div > div {
+.login-form-desktop > div > div {
   max-width: 450px;
 }

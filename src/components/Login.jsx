@@ -23,7 +23,7 @@ class Login extends Component {
 
   render () {
     return (
-      <div className='login-form'>
+      <div className='login-form-desktop'>
         <Grid textAlign='center' verticalAlign='middle'>
           <Grid.Column>
             <Header as='h2' textAlign='center'>
