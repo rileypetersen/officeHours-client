@@ -31,7 +31,7 @@ class Login extends Component {
             </Header>
             <Form size='large'>
               <Segment raised>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
+                <Form.Input fluid icon='user' iconPosition='left' placeholder='User Name' />
                 <Form.Input
                   fluid
                   icon='lock'
@@ -47,7 +47,7 @@ class Login extends Component {
               </Segment>
             </Form>
             <Message>
-              New to Office Hours? <a href='#'>Register</a>
+              New to Office Hours? <a href='/register'>Register</a>
             </Message>
           </Grid.Column>
         </Grid>

@@ -3,20 +3,21 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css'
 
 import Login from './components/Login';
-// import Register from './components/Register';
+import Register from './components/Register';
 
 
 export class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
+        Currently Under Construction
         <BrowserRouter>
           <div className="App">
             <Switch>
 				      <Route exact path="/" component={() => <Redirect to="/login" />} />
               <Route path="/login" component={ Login }/>
-			  	{/* <Route path="/register" component={ Register }/> */}
+			  	    <Route path="/register" component={ Register }/>
             </Switch>
           </div>
         </BrowserRouter>
