@@ -8,7 +8,7 @@ import './Login.css';
 
 class Login extends Component {
   state = {
-    email: '',
+    user_name: '',
     password: ''
   };
 
@@ -31,15 +31,23 @@ class Login extends Component {
             </Header>
             <Form size='large'>
               <Segment raised>
-                <Form.Input fluid icon='user' iconPosition='left' placeholder='User Name' />
+                <Form.Input 
+                  fluid
+                  name='user_name'
+                  icon='user' 
+                  iconPosition='left' 
+                  placeholder='User Name'
+                  onChange={ (e) => this.handleChange(e) }
+                />
                 <Form.Input
                   fluid
+                  name='password'
                   icon='lock'
                   iconPosition='left'
-                  placeholder='Password'
+                  placeholder='*******'
                   type='password'
+                  onChange={ (e) => this.handleChange(e) }                  
                 />
-
                 <Button animated='fade' color='purple' fluid size='large'>
                   <Button.Content visible>Login</Button.Content>
                   <Button.Content hidden>LOGIN</Button.Content>
