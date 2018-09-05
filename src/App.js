@@ -30,13 +30,11 @@ export class App extends Component {
         <div className="App">
           Currently Under Construction
           <BrowserRouter>
-            <div className="App">
-              <Switch>
-                <Route exact path="/" component={ () => <Redirect to="/login" /> } />
-                <Route exact path="/login" component={ Login }/>
-                <Route exact path="/register" component={ Register }/>
-              </Switch>
-            </div>
+            <Switch>
+              <Route exact path="/" component={ () => <Redirect to="/login" /> } />
+              <Route path="/login" component={ Login }/>
+              <Route path="/register" component={ Register }/>
+            </Switch>
           </BrowserRouter>
         </div>
     );
