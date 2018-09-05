@@ -47,14 +47,14 @@ class Register extends Component {
                                         name='first_name'
                                         label='First name'
                                         placeholder='John'
-                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={ (e) => this.handleChange(e) }
                                     />
                                     <Form.Input
                                         required
                                         name='last_name'
                                         label='Last name'
                                         placeholder='Doe'
-                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={ (e) => this.handleChange(e) }
                                     />
                                 </Form.Group>
 
@@ -66,7 +66,7 @@ class Register extends Component {
                                         fluid 
                                         iconPosition='left' 
                                         placeholder='User.Name'
-                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={ (e) => this.handleChange(e) }
                                     />         
 
                                     <Form.Input
@@ -76,7 +76,7 @@ class Register extends Component {
                                         fluid
                                         iconPosition='left'
                                         placeholder='Director'
-                                        onChange={(e) => this.handleChange(e)}
+                                        onChange={ (e) => this.handleChange(e) }
                                     />    
                                 </Form.Group>
 
@@ -155,8 +155,6 @@ class Register extends Component {
                                         onChange={ (e) => this.handleChange(e) }
                                     />
                                 </Form.Group>
-                                
-
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>
                                     <Button.Content hidden>REGISTER</Button.Content>
