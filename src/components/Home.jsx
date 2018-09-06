@@ -24,8 +24,8 @@ export class Home extends Component {
 	render() {
 		return (
 			<div className="home-desktop">
-			<NavBar />
-			<Footer />
+				<NavBar />
+				<Footer />
 			</div>
 		);
 	};
