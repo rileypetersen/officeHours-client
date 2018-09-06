@@ -25,7 +25,7 @@ export class App extends Component {
 		return (
 		this.state.isLoading ? 
 			<Dimmer inverted active>
-			<Loader inverted content='Loading' />
+				<Loader inverted content='Loading' />
 			</Dimmer>
 		:
 			<div className="App">
@@ -33,9 +33,9 @@ export class App extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={ () => <Redirect to="/login" /> } />
-						<Route path="/login" component={ Login }/>
-						<Route path="/register" component={ Register }/>
-						<Route path="/home" component={ Home }/>
+						<Route exact path="/login" component={ Login }/>
+						<Route exact path="/register" component={ Register }/>
+						<Route exact path="/home" component={ Home }/>
 					</Switch>
 				</BrowserRouter>
 			</div>
