@@ -1,25 +1,27 @@
-import axios from 'axios';
+import request from '../../helpers/request';
 const BASE_URL = process.env.BASE_URL;
 
 const _authenticatedRequest = async () => {
-    const authToken = axios. ('/auth/token')
+    const authToken = request('/auth/token')
     return authToken.data.shops_id
 }
 
-const userLogin = async ({email,password}, history) => {
-    const userLogin = axios.post('/auth/token', {email, password})
-    await localStorage.setItem('token', userLogin.data.token);
-    const token = axios. ('/auth/token')
-    return token.data
+const userLogin = async ({ user_name,password }, history) => {
+    const userLogin = await request('/users/login', 'post', { user_name, password })
+    const [ scheme, token ] = req.headers.authorization.split(' ')
+    console.log("I should be a token!?!?! ", token)
+    // await localStorage.setItem('token', userLogin.data.token);
+    // // const token = await request('/users/token')
+    // return token.data
 }
 
 const userSignUp = async (newShop, newUser, history) => {
-    const createdUser = axios.post(`/users`, newUser)
+    const createdUser = await request('/users', 'post', newUser)
     return createdUser.data
 }
 
 const getUser = async () => {
-    const token = axios.get('/auth/token')
+    const token = await request(`/users/token`)
     return token.data
 }
 
