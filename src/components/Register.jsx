@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Input, Message, Segment, TextArea } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import './Register.css';
 // import { userRegister } from '../state/actions/auth';
 
@@ -23,7 +23,6 @@ class Register extends Component {
     // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
     handleRegister = event => {
         event.preventDefault();
-        console.log(this.state)
         // this.props.userRegister(this.state, this.props.history);
     };
 

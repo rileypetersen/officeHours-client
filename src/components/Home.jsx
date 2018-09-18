@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-
-import { Dimmer, Loader, Transition } from 'semantic-ui-react';
+// import {  } from 'react-router-dom';
+// import { } from 'semantic-ui-react';
 
 import NavBar from './DashBoard/NavBar';
 import Footer from './DashBoard/Footer';

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css'
-import { Dimmer, Loader, Transition } from 'semantic-ui-react';
+import { Dimmer, Loader } from 'semantic-ui-react';
 
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 
 
-export class App extends Component {
+class App extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -22,6 +22,7 @@ export class App extends Component {
 	}
 
 	render() {
+		//temp dimmer and load spinner
 		return (
 		this.state.isLoading ? 
 			<Dimmer inverted active>
