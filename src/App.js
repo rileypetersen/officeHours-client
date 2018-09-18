@@ -22,15 +22,15 @@ class App extends Component {
 	}
 
 	render() {
-		//temp dimmer and load spinner
+		// temp dimmer and load spinner
 		return (
 		this.state.isLoading ? 
 			<Dimmer inverted active>
-				<Loader inverted content='Loading' />
+				<Loader inverted content="Loading" />
 			</Dimmer>
 		:
 			<div className="App">
-				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target='_blank' href='https://github.com/just-hey/officeHours-client'>repo</a> on GitHub to learn more.
+				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target="_blank" href="https://github.com/just-hey/officeHours-client">repo</a> on GitHub to learn more.
 
 				<BrowserRouter>
 					<Switch>
