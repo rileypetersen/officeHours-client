@@ -8,7 +8,7 @@ import './Login.css';
 
 class Login extends Component {
 	state = {
-		user_name: '',
+		email: '',
 		password: ''
 	};
 
@@ -34,11 +34,11 @@ class Login extends Component {
 							<Form.Input
 								fluid
 								required
-								label='User Name'
-								name='user_name'
+								label='Email'
+								name='email'
 								icon='user' 
 								iconPosition='left' 
-								placeholder='user.name'
+								placeholder='john.doe@email.com'
 								onChange={ (e) => this.handleChange(e) }
 							/>
 							<Form.Input

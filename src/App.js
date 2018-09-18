@@ -29,7 +29,8 @@ export class App extends Component {
 			</Dimmer>
 		:
 			<div className="App">
-				Currently Under Construction
+				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target='_blank' href='https://github.com/just-hey/officeHours-client'>repo</a> on GitHub to learn more.
+
 				<BrowserRouter>
 					<Switch>
 						<Route exact path="/" component={ () => <Redirect to="/login" /> } />

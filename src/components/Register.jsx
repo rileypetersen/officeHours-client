@@ -10,11 +10,7 @@ class Register extends Component {
     state = {
         first_name: '',
         last_name: '',
-        user_name: '',
-        title: '',
-        profile_img_url: '',
-        short_description: '',
-        long_description: '',
+        email: '',
         password: '',
         password2: ''
     };
@@ -41,120 +37,50 @@ class Register extends Component {
                         </Header>
                         <Form size='large' onSubmit={ this.handleRegister }>
                             <Segment raised>
-                                <Form.Group widths='equal'>
-                                    <Form.Input 
-                                        required
-                                        name='first_name'
-                                        label='First name'
-                                        placeholder='John'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-                                    <Form.Input
-                                        required
-                                        name='last_name'
-                                        label='Last name'
-                                        placeholder='Doe'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-                                </Form.Group>
-
-                                <Form.Group widths='equal'>
-                                    <Form.Input
-                                        required 
-                                        name='user_name'
-                                        label='Username'
-                                        fluid 
-                                        iconPosition='left' 
-                                        placeholder='User.Name'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />         
-
-                                    <Form.Input
-                                        required
-                                        name='title'
-                                        label='Title'
-                                        fluid
-                                        iconPosition='left'
-                                        placeholder='Director'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />    
-                                </Form.Group>
-
-                                {/* <label>Profile Image URL</label>
-                                    <Input
-                                        name='profile_img_url'
-                                        fluid
-                                        label='http://' 
-                                        placeholder='profile-img-url.com'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    /> */}
-
-                                    <Form.Input
-                                        required
-                                        label='Brief Description'
-                                        name='short_description'
-                                        control={TextArea}                    
-                                        fluid
-                                        iconPosition='left'
-                                        placeholder='A brief snippet about you...'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-
-                                {/* <label>In-Depth Description</label>                
-                                    <Form.Input
-                                        required
-                                        name='long_description'
-                                        control={TextArea}
-                                        fluid
-                                        icon=''
-                                        iconPosition='left'
-                                        placeholder='Tell us more about you...'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-
-                                    <Input
-                                        required
-                                        name='linkedin_url'
-                                        fluid
-                                        label='https://www.linkedin.com/in/'
-                                        icon='linkedin square'
-                                        iconPosition='left'
-                                        placeholder='john-doe-1234'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-                                        
-                                    <Input
-                                        name='website_url'
-                                        fluid
-                                        label='http://' 
-                                        placeholder='mysite.com' 
-                                        onChange={ (e) => this.handleChange(e) }
-                                    /> */}
-                                <Form.Group widths='equal'>                                
-                                        <Form.Input
-                                            required
-                                            name='password'
-                                            label='Password'
-                                            fluid
-                                            icon='lock'
-                                            iconPosition='left'
-                                            placeholder='Password'
-                                            type='password'
-                                            onChange={ (e) => this.handleChange(e) }
-                                        />
-                           
-                                    <Form.Input
-                                        required
-                                        name='password2'
-                                        label='Re-Enter Password'
-                                        fluid
-                                        icon='lock'
-                                        iconPosition='left'
-                                        placeholder='Password'
-                                        type='password'
-                                        onChange={ (e) => this.handleChange(e) }
-                                    />
-                                </Form.Group>
+                                <Form.Input 
+                                    required
+                                    name='first_name'
+                                    label='First name'
+                                    placeholder='John'
+                                    onChange={ (e) => this.handleChange(e) }
+                                />
+                                <Form.Input
+                                    required
+                                    name='last_name'
+                                    label='Last name'
+                                    placeholder='Doe'
+                                    onChange={ (e) => this.handleChange(e) }
+                                />
+                                <Form.Input
+                                    required 
+                                    name='email'
+                                    label='Email'
+                                    iconPosition='left' 
+                                    placeholder='john.doe@email.com'
+                                    onChange={ (e) => this.handleChange(e) }
+                                />     
+                                <Form.Input
+                                    required
+                                    name='password'
+                                    label='Password'
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    onChange={ (e) => this.handleChange(e) }
+                                />
+                                <Form.Input
+                                    required
+                                    name='password2'
+                                    label='Re-Enter Password'
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    onChange={ (e) => this.handleChange(e) }
+                                />
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>
                                     <Button.Content hidden>REGISTER</Button.Content>
