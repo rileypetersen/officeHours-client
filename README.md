@@ -2,11 +2,11 @@ _This project is currently under construction._
 
 # OfficeHours
 
-*[Riley Petersen](https://www.linkedin.com/in/rileypetersen/ "Riley Petersen's LinkedIn")*
+*[Riley Petersen](https://www.linkedin.com/in/rileypetersen/)*
 
-*[Curtis Cawley](https://github.com/ccawley "Curtis Cawley's GitHub")*
+*[Curtis Cawley](https://github.com/ccawley)*
 
-*[Justin Hays](https://github.com/just-hey "Justin Hays' GitHub")*
+*[Justin Hays](https://github.com/just-hey)*
 
 OfficeHours was designed to allow users to easily schedule and track reserved time slots for anything ranging from large social events to small business meetings to 1-on-1 mentoring sessions.
 
