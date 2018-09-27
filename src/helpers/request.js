@@ -4,12 +4,12 @@ function request(path, method = 'get', body = null) {
 	let bearerToken = '';
 	const token = localStorage.getItem('token');
 	if (token) bearerToken = `Bearer ${token}`
-	return axios(`${process.env.REACT_APP_BACKEND}${path}`, {
+	return axios(`${process.env.BASE_URL}${path}`, {
 		method: method,
 		headers: {
-		'Content-Type': 'application/json',
-		'Accept': 'application/json',
-		'Authorization': bearerToken
+			'Content-Type': 'application/json',
+			'Accept': 'application/json',
+			'Authorization': bearerToken
 		},
 		body
 	});

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css'
 import { Dimmer, Loader } from 'semantic-ui-react';
 
@@ -22,25 +22,16 @@ class App extends Component {
 	}
 
 	render() {
-		// temp dimmer and load spinner
 		return (
-		this.state.isLoading ? 
-			<Dimmer inverted active>
-				<Loader inverted content="Loading" />
-			</Dimmer>
-		:
-			<div className="App">
+			<Router>
 				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target="_blank" href="https://github.com/just-hey/officeHours-client">repo</a> on GitHub to learn more.
-
-				<BrowserRouter>
-					<Switch>
-						<Route exact path="/" component={ () => <Redirect to="/login" /> } />
-						<Route exact path="/login" component={ Login }/>
-						<Route exact path="/register" component={ Register }/>
-						<Route exact path="/home" component={ Home }/>
-					</Switch>
-				</BrowserRouter>
-			</div>
+				<Switch>
+					<Route exact path="/" component={ () => <Redirect to="/login" /> } />
+					<Route exact path="/login" component={ Login }/>
+					<Route exact path="/register" component={ Register }/>
+					<Route exact path="/home" component={ Home }/>
+				</Switch>
+			</Router>
 		);
 	};
 

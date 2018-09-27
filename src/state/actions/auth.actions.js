@@ -22,7 +22,7 @@ export const userLogin = ({ user_name, password }, history) => {
       history.push('/login');
     }
   }
-}
+};
 
 export const userRegister = (newShop, newUser, history) => {
   return async (dispatch) => {
@@ -37,7 +37,7 @@ export const userRegister = (newShop, newUser, history) => {
       // delete the shop that was made (does not work yet)
     }
   }
-}
+};
 
 export const getUser = () => {
   return async (dispatch) => {
@@ -49,7 +49,7 @@ export const getUser = () => {
       dispatch({ type: NOT_LOGGED_IN, payload: err });
     }
   }
-}
+};
 
 export const userLogout = () => {
   return (dispatch) => {

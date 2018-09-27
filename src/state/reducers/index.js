@@ -1,5 +1,6 @@
 // import all reducers then...
-import { authReducers, usersReducers } from './users.reducers';
+import authReducers from './auth.reducers';
+import usersReducers from './users.reducers';
 
 import { combineReducers } from 'redux';
 
