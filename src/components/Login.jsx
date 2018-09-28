@@ -4,14 +4,13 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import './Login.css';
-import { usersActions } from '../state/actions';
-console.log(usersActions)
-const { loginUser } = usersActions;
+import { authActions } from '../state/actions';
+const { userLogin } = authActions;
 
 class Login extends Component {
 	state = {
-		email: '',
-		password: ''
+		email: 'test@test.com',
+		password: 'test'
 	};
 
 	handleChange = (event) => {
@@ -19,10 +18,11 @@ class Login extends Component {
 	};
   
 	handleLogin = async (event) => {
-		console.log(this.props)
 		event.preventDefault();
-		await this.props.loginUser(this.state);
-			if (this.props.isLoggedIn && !this.props.showLoginError) this.props.history.push("/home");
+		await this.props.userLogin(this.state);
+		if (this.props.isLoggedIn && !this.props.showLoginError) {
+			this.props.history.push('/home');
+		}
 	};
 
 	render () {
@@ -45,6 +45,10 @@ class Login extends Component {
 								placeholder='john.doe@email.com'
 								onChange={ (e) => this.handleChange(e) }
 							/>
+							{ this.props.showLoginError ? <Message
+								error
+								content='You messed up...'
+							/> : null }
 							<Form.Input
 								fluid
 								required
@@ -56,6 +60,10 @@ class Login extends Component {
 								type='password'
 								onChange={ (e) => this.handleChange(e) }                  
 							/>
+							{ this.props.showLoginError ? <Message
+								error
+								content='You messed up...'
+							/> : null }
 							<Button animated='fade' color='purple' fluid size='large'>
 								<Button.Content visible>Login</Button.Content>
 								<Button.Content hidden>LOGIN</Button.Content>
@@ -76,6 +84,6 @@ const mapStateToProps = (state) => {
   	return { showLoginError: state.showLoginError, isLoggedIn: state.isLoggedIn }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ loginUser }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ userLogin }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
