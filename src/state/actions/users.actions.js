@@ -25,7 +25,9 @@ export const getOneUser = (id) => {
 
 export const loginUser = (body) => {
 	return async dispatch => {
-		const payload = await usersModel.loginUser(body);
+		console.log('im in actions!?', body)
+
+		const payload = await usersModel.default.loginUser(body);
 		dispatch({ type: LOGIN_USER, payload });
 	};
 };

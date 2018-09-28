@@ -1,17 +1,16 @@
-import { combineReducers } from 'redux'
-
-// import actions
 import { usersActions } from '../actions'
 
+const {
+  	GET_ALL_USERS
+} = usersActions
 
-// define initial state
-let INITIAL_VALUE = []
+let INITIAL_VALUE = {}
 
-const getAllUsers = (state = INITIAL_VALUE, action) => {
+export default (state = INITIAL_VALUE, action) => {
   switch (action.type) {
-    case 'GET_ALL_USERS':
-      return action.payload
+    case GET_ALL_USERS:
+      	return action.payload
     default:
-      return state
+      	return state
   }
 }

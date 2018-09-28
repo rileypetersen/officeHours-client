@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import './Login.css';
-// import { userLogin } from '../state/actions/auth';
-
+import { usersActions } from '../state/actions';
+console.log(usersActions)
+const { loginUser } = usersActions;
 
 class Login extends Component {
 	state = {
@@ -12,13 +14,15 @@ class Login extends Component {
 		password: ''
 	};
 
-	handleChange = event => {
+	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
   
-	handleLogin = event => {
+	handleLogin = async (event) => {
+		console.log(this.props)
 		event.preventDefault();
-		// this.props.userLogin(this.state, this.props.history);
+		await this.props.loginUser(this.state);
+			if (this.props.isLoggedIn && !this.props.showLoginError) this.props.history.push("/home");
 	};
 
 	render () {
@@ -68,12 +72,10 @@ class Login extends Component {
 	};
 };
 
-const mapStateToProps = state => ({
-  	// showLoginError: state.auth.showLoginError
-});
+const mapStateToProps = (state) => {
+  	return { showLoginError: state.showLoginError, isLoggedIn: state.isLoggedIn }
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  	// userLogin
-}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ loginUser }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

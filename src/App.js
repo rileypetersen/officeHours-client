@@ -17,6 +17,7 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
+		console.log(this.state)
 		// mocks api call...
 		setTimeout(() => this.setState({ isLoading: false }), 500);
 	}
@@ -24,6 +25,7 @@ class App extends Component {
 	render() {
 		return (
 			<Router>
+				<div className="App">
 				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target="_blank" href="https://github.com/just-hey/officeHours-client">repo</a> on GitHub to learn more.
 				<Switch>
 					<Route exact path="/" component={ () => <Redirect to="/login" /> } />
@@ -31,6 +33,7 @@ class App extends Component {
 					<Route exact path="/register" component={ Register }/>
 					<Route exact path="/home" component={ Home }/>
 				</Switch>
+				</div>
 			</Router>
 		);
 	};
