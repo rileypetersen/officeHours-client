@@ -11,11 +11,11 @@ const {
 } = authActions
 
 let INITIAL_STATE = {
-  isLoading: false,
-  isLoggedIn: false,
-  showLoginError: false,
-  showRegisterError: false,
-  user: {}
+	isLoading: false,
+	isLoggedIn: false,
+	showLoginError: false,
+	showRegisterError: false,
+	user: {}
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -23,17 +23,15 @@ export default (state = INITIAL_STATE, action) => {
     case USER_LOGIN_PENDING:
       	return { ...state, isLoading: true }
     case USER_LOGIN_SUCCESS:
-      	return { ...state, isLoading: false, isLoggedIn: true, showLoginError: false, user: action.payload.data }
+      	return { ...state, isLoading: false, isLoggedIn: true, showLoginError: false, user: action.payload }
     case USER_LOGIN_FAILED:
-		return { ...state, isLoading: false, isLoggedIn: false, showLoginError: true, user: {} }
-		  
+		return { ...state, showLoginError: true }
     case USER_REGISTER_PENDING:   
         return { ...state, isLoading: true }
     case USER_REGISTER_SUCCESS: 
-      	return { ...state, isLoading: false, isLoggedIn: true, showLoginError: false, user: action.payload.data }
+      	return { ...state, isLoading: false, isLoggedIn: true, showLoginError: false, user: action.payload }
     case USER_REGISTER_FAILED: 
 		return { ...state, isLoading: false, showRegisterError: true }
-		  
     case USER_LOGOUT:
         return { ...state, isLoading: false, isLoggedIn: false, user: {} }
 
