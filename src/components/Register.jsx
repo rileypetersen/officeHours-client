@@ -20,14 +20,12 @@ class Register extends Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE
-    // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
     handleRegister = async (event) => {
         event.preventDefault();
         // this.props.userRegister(this.state, this.props.history);
         if (this.state.password !== this.state.password2) console.log('must match!') 
 		await this.props.userRegister(this.state, this.props.history);
-		if (!this.props.showRegisterError) console.log('bad register?!')
+		if (this.props.showRegisterSuccess) setTimeout(() => this.props.history.push('/login'), 2000);
     };
 
     componentDidMount() {
