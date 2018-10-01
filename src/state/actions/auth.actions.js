@@ -28,7 +28,8 @@ export const userRegister = (newUser, history) => {
       const payload = await authModel.default.userRegister(newUser, history)
       dispatch({ type: USER_REGISTER_SUCCESS, payload });
     } catch (err) {
-      dispatch({ type: USER_REGISTER_FAILED, payload: err });
+      console.log('meee?',err.response)
+      dispatch({ type: USER_REGISTER_FAILED, payload: err.response.data.message })
     }
   }
 };

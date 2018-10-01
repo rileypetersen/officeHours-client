@@ -2,7 +2,7 @@ import request from '../../helpers/request';
 
 const _authenticatedRequest = async () => {
     const authToken = request('/auth/token')
-    return authToken.data.shops_id
+    return authToken.data
 }
 
 const userLogin = async (body) => {
@@ -21,14 +21,15 @@ const userLogin = async (body) => {
 }
 
 const userRegister = async (newUser) => {
-    try {
-        console.log('fire reg? ', newUser)
+    // try {
         delete newUser.password2
         const createdUser = await request('/users/register', 'post', newUser)
-        return createdUser.data
-    } catch (error) {
-        console.error(error)
-    }
+        
+        console.log('fire reg?!!!!!!!!!!!!! ', createdUser)
+        // return createdUser.data
+    // } catch (error) {
+        // console.error('I fucked up? ',error)
+    // }
 }
 
 const getUser = async () => {

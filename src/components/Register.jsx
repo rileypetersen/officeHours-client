@@ -11,7 +11,7 @@ class Register extends Component {
     state = {
         first_name: 'tester',
         last_name: 'test',
-        email: 'test2@test.com',
+        email: 'test5@test.com',
         password: 'test',
         password2: 'test'
     };
@@ -104,12 +104,16 @@ class Register extends Component {
                             Already have an account? <a href='/login'>Login</a>
                         </Message>
 
+                        { this.props.showRegisterSuccess ? <Message
+								success
+								content='Register successful'
+                            /> : null }
+
                         { this.props.showRegisterError ? <Message
 								error
-								content='Registering failed...'
+								content={`${this.props.registerErrorMessage}`}
                             /> : null }
                             
-
                     </Grid.Column>
                 </Grid>
             </div>
@@ -117,10 +121,10 @@ class Register extends Component {
     };
 };
 
-const mapStateToProps = state => ({
-  showRegisterError: state.authReducers.showRegisterError
-});
+const mapStateToProps = (state) => {
+  return { showRegisterSuccess: state.authReducers.showRegisterSuccess, showRegisterError: state.authReducers.showRegisterError, registerErrorMessage: state.authReducers.registerErrorMessage }
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators({ userRegister }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ userRegister }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
