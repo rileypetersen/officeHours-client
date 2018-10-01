@@ -17,7 +17,7 @@ export class Home extends Component {
 
 	componentDidMount() {
 		// mocks api call...
-		// setTimeout(() => this.setState({ isLoading: false }), 500);
+		setTimeout(() => this.setState({ isLoading: false }), 500);
 	}
 
 	render() {

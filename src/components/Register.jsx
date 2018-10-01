@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Register.css';
 // import { userRegister } from '../state/actions/auth';
 
@@ -12,7 +12,8 @@ class Register extends Component {
         last_name: '',
         email: '',
         password: '',
-        password2: ''
+        password2: '',
+        visable: false
     };
 
     handleChange = event => {
@@ -25,6 +26,11 @@ class Register extends Component {
         event.preventDefault();
         // this.props.userRegister(this.state, this.props.history);
     };
+
+    componentDidMount() {
+		console.log('mounting')
+		setTimeout(() => this.setState({ visible: true }), 1);
+	}
 
     render () {
         return (
@@ -97,7 +103,7 @@ class Register extends Component {
 };
 
 const mapStateToProps = state => ({
-  // showLoginError: state.auth.showLoginError
+  // showRegisterError: state.authReducers.showRegisterError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

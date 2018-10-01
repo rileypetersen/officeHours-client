@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Login.css';
 import { authActions } from '../state/actions';
 const { userLogin } = authActions;
@@ -10,12 +10,18 @@ const { userLogin } = authActions;
 class Login extends Component {
 	state = {
 		email: 'test@test.com',
-		password: 'test'
+		password: 'test',
+		visible: false
 	};
 
 	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
+
+	componentDidMount() {
+		console.log('mounting')
+		setTimeout(() => this.setState({ visible: true }), 1);
+	}
   
 	handleLogin = async (event) => {
 		event.preventDefault();
@@ -45,10 +51,6 @@ class Login extends Component {
 								placeholder='john.doe@email.com'
 								onChange={ (e) => this.handleChange(e) }
 							/>
-							{ this.props.showLoginError ? <Message
-								error
-								content='You messed up...'
-							/> : null }
 							<Form.Input
 								fluid
 								required
@@ -60,10 +62,6 @@ class Login extends Component {
 								type='password'
 								onChange={ (e) => this.handleChange(e) }                  
 							/>
-							{ this.props.showLoginError ? <Message
-								error
-								content='You messed up...'
-							/> : null }
 							<Button animated='fade' color='purple' fluid size='large'>
 								<Button.Content visible>Login</Button.Content>
 								<Button.Content hidden>LOGIN</Button.Content>
@@ -73,6 +71,12 @@ class Login extends Component {
 						<Message>
 							New to Office Hours? <a href='/register'>Register</a>
 						</Message>
+
+						{ this.props.showLoginError ? <Message
+								error
+								content='Incorrect email and/or password'
+							/> : null }
+
 					</Grid.Column>
 				</Grid>
 			</div>
@@ -81,7 +85,7 @@ class Login extends Component {
 };
 
 const mapStateToProps = (state) => {
-  	return { showLoginError: state.showLoginError, isLoggedIn: state.isLoggedIn }
+  	return { showLoginError: state.authReducers.showLoginError, isLoggedIn: state.authReducers.isLoggedIn }
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ userLogin }, dispatch);
