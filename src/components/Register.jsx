@@ -22,14 +22,12 @@ class Register extends Component {
 
     handleRegister = async (event) => {
         event.preventDefault();
-        // this.props.userRegister(this.state, this.props.history);
-        if (this.state.password !== this.state.password2) console.log('must match!') 
+        if (this.state.password !== this.state.password2) console.log('must match!');
 		await this.props.userRegister(this.state, this.props.history);
 		if (this.props.showRegisterSuccess) setTimeout(() => this.props.history.push('/login'), 2000);
     };
 
     componentDidMount() {
-		console.log('mounting')
 		// setTimeout(() => this.setState({ visible: true }), 1);
 	}
 
