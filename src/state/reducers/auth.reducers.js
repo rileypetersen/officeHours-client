@@ -29,9 +29,9 @@ export default (state = INITIAL_STATE, action) => {
     case USER_REGISTER_PENDING:   
         return { ...state, isLoading: true }
     case USER_REGISTER_SUCCESS: 
-      	return { ...state, isLoading: false, isLoggedIn: true, showLoginError: false, user: action.payload }
+      	return { ...state, isLoading: false, showLoginError: false, showRegisterSuccess: true }
     case USER_REGISTER_FAILED: 
-		return { ...state, isLoading: false, showRegisterError: true }
+		return { ...state, isLoading: false, showLoginError: true, showRegisterSuccess: false }
     case USER_LOGOUT:
         return { ...state, isLoading: false, isLoggedIn: false, user: {} }
 

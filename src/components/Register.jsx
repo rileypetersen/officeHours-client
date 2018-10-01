@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Register.css';
-// import { userRegister } from '../state/actions/auth';
-
+import { authActions } from '../state/actions';
+const { userRegister } = authActions;
 
 class Register extends Component {
     state = {
@@ -103,13 +104,9 @@ class Register extends Component {
 };
 
 const mapStateToProps = state => ({
-  // showRegisterError: state.authReducers.showRegisterError
+  showRegisterError: state.authReducers.showRegisterError
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // userLogin
-}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ userRegister }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
-
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
