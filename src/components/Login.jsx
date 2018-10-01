@@ -10,8 +10,7 @@ const { userLogin } = authActions;
 class Login extends Component {
 	state = {
 		email: 'test@test.com',
-		password: 'test',
-		visible: false
+		password: 'test'
 	};
 
 	handleChange = (event) => {
@@ -20,7 +19,7 @@ class Login extends Component {
 
 	componentDidMount() {
 		console.log('mounting')
-		setTimeout(() => this.setState({ visible: true }), 1);
+		// setTimeout(() => this.setState({ visible: true }), 1);
 	}
   
 	handleLogin = async (event) => {
@@ -74,7 +73,7 @@ class Login extends Component {
 
 						{ this.props.showLoginError ? <Message
 								error
-								content='Incorrect email and/or password'
+								content='Incorrect email and/or password...'
 							/> : null }
 
 					</Grid.Column>
