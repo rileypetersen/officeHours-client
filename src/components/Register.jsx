@@ -9,28 +9,30 @@ const { userRegister } = authActions;
 
 class Register extends Component {
     state = {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        password2: '',
-        visable: false
+        first_name: 'tester',
+        last_name: 'test',
+        email: 'test2@test.com',
+        password: 'test',
+        password2: 'test'
     };
 
-    handleChange = event => {
+    handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
     // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE
     // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
-    handleRegister = event => {
+    handleRegister = async (event) => {
         event.preventDefault();
         // this.props.userRegister(this.state, this.props.history);
+        if (this.state.password !== this.state.password2) console.log('must match!') 
+		await this.props.userRegister(this.state, this.props.history);
+		if (!this.props.showRegisterError) console.log('bad register?!')
     };
 
     componentDidMount() {
 		console.log('mounting')
-		setTimeout(() => this.setState({ visible: true }), 1);
+		// setTimeout(() => this.setState({ visible: true }), 1);
 	}
 
     render () {
@@ -49,6 +51,7 @@ class Register extends Component {
                                     label='First name'
                                     placeholder='John'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="tester"
                                 />
                                 <Form.Input
                                     required
@@ -56,6 +59,7 @@ class Register extends Component {
                                     label='Last name'
                                     placeholder='Doe'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Form.Input
                                     required 
@@ -64,6 +68,7 @@ class Register extends Component {
                                     iconPosition='left' 
                                     placeholder='john.doe@email.com'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test1@test.com"
                                 />     
                                 <Form.Input
                                     required
@@ -75,6 +80,7 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Form.Input
                                     required
@@ -86,6 +92,7 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>
@@ -96,6 +103,13 @@ class Register extends Component {
                         <Message>
                             Already have an account? <a href='/login'>Login</a>
                         </Message>
+
+                        { this.props.showRegisterError ? <Message
+								error
+								content='Registering failed...'
+                            /> : null }
+                            
+
                     </Grid.Column>
                 </Grid>
             </div>

@@ -12,20 +12,23 @@ const userLogin = async (body) => {
     // // let token = await request('/users/token')
     // return token.data
         const response = await request(`/users/login`, 'post', body);
-        console.log('response?', response)
         const [ scheme, token ] = response.headers.auth.split(' ');
-        console.log(token)
         localStorage.setItem('officeHoursToken', token);
         return response;
-    }
-    catch(err) {
-        console.error(err)
+    } catch(error) {
+        console.error(error)
     }
 }
 
-const userSignUp = async (newShop, newUser) => {
-    const createdUser = await request('/users', 'post', newUser)
-    return createdUser.data
+const userRegister = async (newUser) => {
+    try {
+        console.log('fire reg? ', newUser)
+        delete newUser.password2
+        const createdUser = await request('/users/register', 'post', newUser)
+        return createdUser.data
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 const getUser = async () => {
@@ -34,4 +37,4 @@ const getUser = async () => {
 }
 
 
-export default { _authenticatedRequest, userLogin, userSignUp, getUser }
+export default { _authenticatedRequest, userLogin, userRegister, getUser }

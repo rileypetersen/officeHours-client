@@ -14,7 +14,6 @@ export const userLogin = (body, history) => {
     try {
       dispatch({ type: USER_LOGIN_PENDING });
       const payload = await authModel.default.userLogin(body, history);
-      console.log('auth actions',payload)
       dispatch({ type: USER_LOGIN_SUCCESS, payload });
     } catch (err) {
       dispatch({ type: USER_LOGIN_FAILED, payload: err });
@@ -22,11 +21,11 @@ export const userLogin = (body, history) => {
   }
 };
 
-export const userRegister = (newShop, newUser, history) => {
+export const userRegister = (newUser, history) => {
   return async (dispatch) => {
     try {
       dispatch({ type: USER_REGISTER_PENDING });
-      const payload = await authModel.default.userRegister(newShop, newUser, history)
+      const payload = await authModel.default.userRegister(newUser, history)
       dispatch({ type: USER_REGISTER_SUCCESS, payload });
     } catch (err) {
       dispatch({ type: USER_REGISTER_FAILED, payload: err });
