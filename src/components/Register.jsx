@@ -111,7 +111,7 @@ class Register extends Component {
 
                         { this.props.showRegisterError ? <Message
 								error
-								content={`${this.props.registerErrorMessage}`}
+								content={`${this.props.registerErrorMessage}...`}
                             /> : null }
                             
                     </Grid.Column>
