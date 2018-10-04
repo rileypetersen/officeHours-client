@@ -11,10 +11,9 @@ export const USER_LOGOUT = 'USER_LOGOUT';
 
 export const userLogin = (body, history) => {
 	return async (dispatch) => {
-		try {;
+		try {
 			dispatch({ type: USER_LOGIN_PENDING });
 			const response = await authModel.default.userLogin(body, history);
-			console.log('the pay!', response);
 			dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.data });
 		} catch (err) {
 			dispatch({ type: USER_LOGIN_FAILED, payload: err.response.data.message });
