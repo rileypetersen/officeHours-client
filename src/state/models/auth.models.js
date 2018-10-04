@@ -6,9 +6,10 @@ const _authenticatedRequest = async () => {
 };
 
 const userLogin = async (body) => {
-    const response = await request(`/users/login`, 'post', body);
-    const [ scheme, token ] = response.headers.auth.split(' ');
+    const auth = await request(`/users/login`, 'post', body);
+    const [ scheme, token ] = auth.headers.auth.split(' ');
     localStorage.setItem('officeHoursToken', token);
+    const response = await request(`/users/${auth.data.data}`);
     return response;
 };
 
