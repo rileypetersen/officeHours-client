@@ -2,7 +2,7 @@ import axios from 'axios';
 
 function request(path, method = 'get', body = null) {
 	let bearerToken = '';
-	const token = localStorage.getItem('token');
+	const token = localStorage.getItem('officeHoursToken');
 	if (token) bearerToken = `Bearer ${token}`;
 	return axios({
 		method: method,
