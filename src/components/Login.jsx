@@ -9,8 +9,8 @@ const { userLogin } = authActions;
 
 class Login extends Component {
 	state = {
-		email: 'test@test.com',
-		password: 'test'
+		email: '',
+		password: ''
 	};
 
 	handleChange = (event) => {
@@ -18,15 +18,14 @@ class Login extends Component {
 	};
 
 	componentDidMount() {
-		console.log('mounting')
-		// setTimeout(() => this.setState({ visible: true }), 1);
-	}
-  
+
+	};
+
 	handleLogin = async (event) => {
 		event.preventDefault();
 		await this.props.userLogin(this.state);
 		if (this.props.isLoggedIn && !this.props.showLoginError) {
-			this.props.history.push('/home');
+			this.props.history.push('/orgslist');
 		}
 	};
 
@@ -45,8 +44,8 @@ class Login extends Component {
 								required
 								label='Email'
 								name='email'
-								icon='user' 
-								iconPosition='left' 
+								icon='user'
+								iconPosition='left'
 								placeholder='john.doe@email.com'
 								onChange={ (e) => this.handleChange(e) }
 							/>
@@ -59,7 +58,7 @@ class Login extends Component {
 								iconPosition='left'
 								placeholder='*******'
 								type='password'
-								onChange={ (e) => this.handleChange(e) }                  
+								onChange={ (e) => this.handleChange(e) }
 							/>
 							<Button animated='fade' color='purple' fluid size='large'>
 								<Button.Content visible>Login</Button.Content>
