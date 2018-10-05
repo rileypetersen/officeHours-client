@@ -17,7 +17,6 @@ class App extends Component {
 	}
 	
 	componentDidMount() {
-		console.log(this.state)
 		// mocks api call...
 		setTimeout(() => this.setState({ isLoading: false }), 500);
 	}

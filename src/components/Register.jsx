@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Register.css';
-// import { userRegister } from '../state/actions/auth';
-
+import { authActions } from '../state/actions';
+const { userRegister } = authActions;
 
 class Register extends Component {
     state = {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        password2: ''
+        first_name: 'tester',
+        last_name: 'test',
+        email: 'test5@test.com',
+        password: 'test',
+        password2: 'test'
     };
 
-    handleChange = event => {
+    handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    // User type for this kind of registering will ALWAYS be "member" and "can_create_session" will ALWAYS be FALSE
-    // profile_img_url, long_description, 'linkedin_url', 'website_url' can/will be set after inital registering...
-    handleRegister = event => {
+    handleRegister = async (event) => {
         event.preventDefault();
-        // this.props.userRegister(this.state, this.props.history);
+        if (this.state.password !== this.state.password2) console.log('must match!');
+		await this.props.userRegister(this.state, this.props.history);
+		if (this.props.showRegisterSuccess) setTimeout(() => this.props.history.push('/login'), 2000);
     };
+
+    componentDidMount() {
+		// setTimeout(() => this.setState({ visible: true }), 1);
+	}
 
     render () {
         return (
@@ -42,6 +47,7 @@ class Register extends Component {
                                     label='First name'
                                     placeholder='John'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="tester"
                                 />
                                 <Form.Input
                                     required
@@ -49,6 +55,7 @@ class Register extends Component {
                                     label='Last name'
                                     placeholder='Doe'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Form.Input
                                     required 
@@ -57,6 +64,7 @@ class Register extends Component {
                                     iconPosition='left' 
                                     placeholder='john.doe@email.com'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test1@test.com"
                                 />     
                                 <Form.Input
                                     required
@@ -68,6 +76,7 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Form.Input
                                     required
@@ -79,6 +88,7 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
+                                    value="test"
                                 />
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>
@@ -89,6 +99,17 @@ class Register extends Component {
                         <Message>
                             Already have an account? <a href='/login'>Login</a>
                         </Message>
+
+                        { this.props.showRegisterSuccess ? <Message
+								success
+								content='Register successful'
+                            /> : null }
+
+                        { this.props.showRegisterError ? <Message
+								error
+								content={`${this.props.registerErrorMessage}...`}
+                            /> : null }
+                            
                     </Grid.Column>
                 </Grid>
             </div>
@@ -96,14 +117,10 @@ class Register extends Component {
     };
 };
 
-const mapStateToProps = state => ({
-  // showLoginError: state.auth.showLoginError
-});
+const mapStateToProps = (state) => {
+  return { showRegisterSuccess: state.authReducers.showRegisterSuccess, showRegisterError: state.authReducers.showRegisterError, registerErrorMessage: state.authReducers.registerErrorMessage }
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // userLogin
-}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ userRegister }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
-
-
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));

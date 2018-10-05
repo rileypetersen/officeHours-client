@@ -2,27 +2,32 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
 import './Login.css';
-import { usersActions } from '../state/actions';
-console.log(usersActions)
-const { loginUser } = usersActions;
+import { authActions } from '../state/actions';
+const { userLogin } = authActions;
 
 class Login extends Component {
 	state = {
-		email: '',
-		password: ''
+		email: 'test@test.com',
+		password: 'test'
 	};
 
 	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
+
+	componentDidMount() {
+		console.log('mounting')
+		// setTimeout(() => this.setState({ visible: true }), 1);
+	}
   
 	handleLogin = async (event) => {
-		console.log(this.props)
 		event.preventDefault();
-		await this.props.loginUser(this.state);
-			if (this.props.isLoggedIn && !this.props.showLoginError) this.props.history.push("/home");
+		await this.props.userLogin(this.state);
+		if (this.props.isLoggedIn && !this.props.showLoginError) {
+			this.props.history.push('/home');
+		}
 	};
 
 	render () {
@@ -65,6 +70,12 @@ class Login extends Component {
 						<Message>
 							New to Office Hours? <a href='/register'>Register</a>
 						</Message>
+
+						{ this.props.showLoginError ? <Message
+								error
+								content='Incorrect email and/or password...'
+							/> : null }
+
 					</Grid.Column>
 				</Grid>
 			</div>
@@ -73,9 +84,9 @@ class Login extends Component {
 };
 
 const mapStateToProps = (state) => {
-  	return { showLoginError: state.showLoginError, isLoggedIn: state.isLoggedIn }
+  	return { showLoginError: state.authReducers.showLoginError, isLoggedIn: state.authReducers.isLoggedIn }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ loginUser }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ userLogin }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
