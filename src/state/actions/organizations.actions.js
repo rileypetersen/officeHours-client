@@ -101,7 +101,6 @@ export const getAllOrgs = () => {
 			const payload = await orgsModel.getAllOrgs();
 			dispatch({ type: GET_ALL_ORGS_SUCCESS, payload })
 		} catch (err) {
-			console.log(err.message);
 			dispatch({ type: GET_ALL_ORGS_FAILED, payload: err.response.data.message })
 		}
 	};
