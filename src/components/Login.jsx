@@ -17,13 +17,9 @@ class Login extends Component {
 		this.setState({ [event.target.name]: event.target.value });
 	};
 
-	componentDidMount() {
-
-	};
-
 	handleLogin = async (event) => {
 		event.preventDefault();
-		await this.props.userLogin(this.state);
+		await this.props.userLogin({ email: this.state.email.trim(), password: this.state.password.trim() });
 		if (this.props.isLoggedIn && !this.props.showLoginError) {
 			this.props.history.push('/orgslist');
 		}
