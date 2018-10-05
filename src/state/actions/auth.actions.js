@@ -13,7 +13,8 @@ export const userLogin = (body, history) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: USER_LOGIN_PENDING });
-			const response = await authModel.default.userLogin(body, history);
+			const response = await authModel.userLogin(body, history);
+			console.log('this far?', response)
 			dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.data });
 		} catch (err) {
 			dispatch({ type: USER_LOGIN_FAILED, payload: err.response.data.message });
@@ -25,7 +26,7 @@ export const userRegister = (newUser, history) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: USER_REGISTER_PENDING });
-			const payload = await authModel.default.userRegister(newUser, history);
+			const payload = await authModel.userRegister(newUser, history);
 			dispatch({ type: USER_REGISTER_SUCCESS, payload });
 		} catch (err) {
 			dispatch({ type: USER_REGISTER_FAILED, payload: err.response.data.message });
