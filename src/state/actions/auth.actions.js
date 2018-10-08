@@ -5,7 +5,7 @@ export const USER_LOGIN_FAILED = 'USER_LOGIN_FAILED';
 export const USER_REGISTER_PENDING = 'USER_REGISTER_PENDING';
 export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS';
 export const USER_REGISTER_FAILED = 'USER_REGISTER_FAILED';
-export const GET_USER = 'GET_USER';
+export const GET_USER_VIA_TOKEN = 'GET_USER_VIA_TOKEN';
 export const NOT_LOGGED_IN = 'NOT_LOGGED_IN';
 export const USER_LOGOUT = 'USER_LOGOUT';
 
@@ -14,7 +14,7 @@ export const userLogin = (body, history) => {
 		try {
 			dispatch({ type: USER_LOGIN_PENDING });
 			const response = await authModel.userLogin(body, history);
-			dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data.data });
+			dispatch({ type: USER_LOGIN_SUCCESS, payload: response.data });
 		} catch (err) {
 			dispatch({ type: USER_LOGIN_FAILED, payload: err.response.data.message });
 		}
@@ -33,11 +33,11 @@ export const userRegister = (newUser, history) => {
 	};
 };
 
-export const getUser = () => {
+export const getUserViaToken = () => {
 	return async (dispatch) => {
 		try {
-			const token = await authModel.getUser();
-			dispatch({ type: GET_USER, payload: token });
+			const token = await authModel.getUserViaToken(); 
+			dispatch({ type: GET_USER_VIA_TOKEN, payload: token });
 		}
 		catch (err) {
 			dispatch({ type: NOT_LOGGED_IN, payload: err });

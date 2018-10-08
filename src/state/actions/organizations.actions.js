@@ -1,5 +1,8 @@
 import { orgsModel } from '../models';
 
+export const GET_ONE_ORG_PENDING = 'GET_ONE_ORG_PENDING';
+export const GET_ONE_ORG_SUCCESS = 'GET_ONE_ORG_SUCCESS';
+export const GET_ONE_ORG_FAILED = 'GET_ONE_ORG_FAILED';
 export const GET_ALL_ORG_USERS_PENDING = 'GET_ALL_ORG_USERS_PENDING';
 export const GET_ALL_ORG_USERS_SUCCESS = 'GET_ALL_ORG_USERS_SUCCESS';
 export const GET_ALL_ORG_USERS_FAILED = 'GET_ALL_ORG_USERS_FAILED';
@@ -21,6 +24,19 @@ export const DELETE_ORG_USER_FAILED = 'DELETE_ORG_USER_FAILED';
 export const GET_ALL_ORGS_PENDING = 'GET_ALL_ORGS_PENDINGPENDING';
 export const GET_ALL_ORGS_SUCCESS = 'GET_ALL_ORGS_SUCCESS';
 export const GET_ALL_ORGS_FAILED = 'GET_ALL_ORGS_FAILED';
+
+
+export const getOneOrg = (id) => {
+	return async dispatch => {
+		try {
+			dispatch({ type: GET_ONE_ORG_PENDING })
+			const payload = await orgsModel.getOneOrg(id);
+			dispatch({ type: GET_ONE_ORG_SUCCESS, payload });
+		} catch (err) {
+			dispatch({ type: GET_ONE_ORG_FAILED })
+		}
+	};
+};
 
 export const getAllOrgUsers = () => {
 	return async dispatch => {
