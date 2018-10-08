@@ -1,12 +1,14 @@
 import { orgsActions } from '../actions';
 
 const {
+    GET_ONE_ORG_PENDING,
+    GET_ONE_ORG_SUCCESS,
+    GET_ONE_ORG_FAILED,
     GET_ALL_ORG_USERS_PENDING,
     GET_ALL_ORG_USERS_SUCCESS,
     GET_ALL_ORG_USERS_FAILED,
     GET_ONE_ORG_USER_PENDING,
     GET_ONE_ORG_USER_SUCCESS,
-    GET_ONE_ORG_FAILED,
     ADD_ORG_USER_PENDING,
     ADD_ORG_USER_SUCCESS,
     ADD_ORG_FAILED,
@@ -38,6 +40,14 @@ let INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
+
+    // case GET_ONE_ORG_PENDING:
+    //     return { ...state, isLoading: false, }
+    // case GET_ONE_ORG_SUCCESS:
+    //     return { ...state, isLoading: false, }
+    // case GET_ONE_ORG_FAILED:
+    //     return { ...state, isLoading: false, }
+
     case GET_ALL_ORGS_PENDING:
       	return { ...state, isLoading: true }
     case GET_ALL_ORGS_SUCCESS:

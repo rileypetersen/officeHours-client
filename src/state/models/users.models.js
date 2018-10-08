@@ -18,7 +18,6 @@ const loginUser = async (body) => {
         console.log(body)
         const response = await request(`/users/login`, 'post', body)
         console.log('response body?',response)
-        // console.log('response headers?',response.headers)
         return response.data
     }
     catch(err) {
@@ -28,15 +27,11 @@ const loginUser = async (body) => {
 
 const registerUser = async (body) => {
     const response = await request(`/users/register`, 'post', body)
-    console.log('response body?',response.data)
-    console.log('response headers?',response.headers)
     return response.data
 }
 
 const getUserTags = async (id) => {
     const response = await request(`/users/${id}/tags`)
-    console.log('response body?',response.data)
-    console.log('response headers?',response.headers)
     return response.data
 };
 
