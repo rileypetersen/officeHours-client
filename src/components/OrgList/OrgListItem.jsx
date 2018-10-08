@@ -13,7 +13,7 @@ const OrgListItem = ({ org }) => {
                 </Item.Content>
                 <Item.Content>
                     <Item.Extra>
-                        <Button floated='right'>Join</Button>
+                        <Button floated='right'>{org.joined ? 'View' : 'Join'}</Button>
                     </Item.Extra>
                 </Item.Content>
             </Item>
