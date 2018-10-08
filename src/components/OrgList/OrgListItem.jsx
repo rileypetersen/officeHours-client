@@ -1,14 +1,23 @@
 import React from 'react';
-import { List } from 'semantic-ui-react';
+import { Item, Button, List } from 'semantic-ui-react';
 
 const OrgListItem = ({ org }) => {
     return (
-        <List.Item>
-            <List.Icon name='user' size='big' verticalAlign='middle' />
-            <List.Content>
-                <List.Header as='a'>{ org.name }</List.Header>
-            </List.Content>
-        </List.Item>
+        <Item.Group>
+            <Item>
+                <Item.Image size='small' src='https://via.placeholder.com/300x300' />
+
+                <Item.Content verticalAlign='middle'>
+                    <Item.Header>{org.name}</Item.Header>
+                    <Item.Description>{org.long_description}</Item.Description>
+                </Item.Content>
+                <Item.Content>
+                    <Item.Extra>
+                        <Button floated='right'>Join</Button>
+                    </Item.Extra>
+                </Item.Content>
+            </Item>
+        </Item.Group>
     )
 }
 
