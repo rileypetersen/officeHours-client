@@ -13,11 +13,10 @@ class OrgList extends Component {
     }
 
     componentDidMount = async () => {
-        await this.props.getAllOrgs()
+        await this.props.getAllOrgs(this.props.usersOrgs)
     }
 
     render() {
-		
         return (
         <Grid textAlign='center' verticalAlign='middle'>
             <Grid.Column>
