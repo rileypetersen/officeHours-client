@@ -98,7 +98,7 @@ export const getAllOrgs = () => {
 	return async dispatch => {
 		try {
 			dispatch({ type: GET_ALL_ORGS_PENDING })
-			const payload = await orgsModel.getAllOrgs();
+			const payload = await orgsModel.getAllOrgs()
 			dispatch({ type: GET_ALL_ORGS_SUCCESS, payload })
 		} catch (err) {
 			dispatch({ type: GET_ALL_ORGS_FAILED, payload: err.response.data.message })

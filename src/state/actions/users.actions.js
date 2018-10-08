@@ -1,13 +1,6 @@
-// import { usersModel } from '../models';
+import { usersModel } from '../models';
 
 // export const GET_ALL_USERS = 'GET_ALL_USERS';
-// export const GET_ONE_USER = 'GET_ONE_USER';
-// export const LOGIN_USER = 'LOGIN_USER';
-// export const REGISTER_USER = 'REGISTER_USER';
-// export const GET_ONE_USER_TAGS = 'GET_ONE_USER_TAGS';
-// export const ADD_REMOVE_USER_TAG = 'ADD_REMOVE_USER_TAG';
-// export const UPDATE_USER = 'UPDATE_USER';
-// export const DELETE_USER = 'DELETE_USER';
 
 // export const getAllUsers = () => {
 // 	return async dispatch => {
