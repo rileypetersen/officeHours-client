@@ -110,11 +110,18 @@ export const deleteOrgUser = (id) => {
 	}
 };
 
-export const getAllOrgs = () => {
+export const getAllOrgs = (usersOrgs) => {
 	return async dispatch => {
 		try {
 			dispatch({ type: GET_ALL_ORGS_PENDING })
-			const payload = await orgsModel.getAllOrgs()
+			let payload = await orgsModel.getAllOrgs()
+			payload = payload.map(org => {
+				let found = usersOrgs.find(uOrg => {
+					return uOrg.id === org.id
+				})
+				found !== undefined ? org.joined = true : org.joined = false;
+				return org
+			})
 			dispatch({ type: GET_ALL_ORGS_SUCCESS, payload })
 		} catch (err) {
 			dispatch({ type: GET_ALL_ORGS_FAILED, payload: err.response.data.message })
