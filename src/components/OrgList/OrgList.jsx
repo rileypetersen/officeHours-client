@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { List, Grid, Form, Segment } from 'semantic-ui-react';
+import { Item, List, Grid, Form, Segment } from 'semantic-ui-react';
 import { orgsActions } from '../../state/actions';
 import OrgListItem from './OrgListItem'
 const { getAllOrgs } = orgsActions;
@@ -18,17 +18,17 @@ class OrgList extends Component {
 
     render() {
         return (
-        <Grid textAlign='center' verticalAlign='middle'>
-            <Grid.Column>
-                <Form size='large' onSubmit={ this.handleLogin }>
-                    <Segment raised>
-                        <List divided relaxed>
-                            { this.props.orgs.map((org, i) => < OrgListItem key={i} org={org} />) }
-                        </List>
-                    </Segment>
-                </Form>
-            </Grid.Column>
-        </Grid>
+            <Grid textAlign='center' verticalAlign='middle'>
+                <Grid.Column>
+                    <Form size='large' onSubmit={ this.handleLogin }>
+                        <Segment raised>
+                            <Item.Group divided link>
+                                { this.props.orgs.map((org, i) => < OrgListItem key={i} org={org} />) }
+                            </Item.Group>
+                        </Segment>
+                    </Form>
+                </Grid.Column>
+            </Grid>
         )
     }
 };
