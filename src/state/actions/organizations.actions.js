@@ -116,15 +116,14 @@ export const getAllOrgs = (usersOrgs) => {
 			dispatch({ type: GET_ALL_ORGS_PENDING })
 			let payload = await orgsModel.getAllOrgs()
 			payload = payload.map(org => {
-				let found = usersOrgs.find(uOrg => {
-					return uOrg.id === org.id
-				})
+				let found = usersOrgs.find(uOrg => uOrg.id === org.id);
 				found !== undefined ? org.joined = true : org.joined = false;
 				return org
 			})
 			dispatch({ type: GET_ALL_ORGS_SUCCESS, payload })
 		} catch (err) {
-			dispatch({ type: GET_ALL_ORGS_FAILED, payload: err.response.data.message })
+			const payload = err.response ? err.response.data.message : 'Failed';
+			dispatch({ type: GET_ALL_ORGS_FAILED, payload })
 		}
 	};
 };

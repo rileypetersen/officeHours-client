@@ -6,7 +6,7 @@ const getAllOrgs = async () => {
 };
 
 const getOneOrg = async (id) => {
-    const response = await request(`organization/${id}`)
+    const response = await request(`/organizations/${id}`)
     return response.data;
 };
 
