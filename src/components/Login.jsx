@@ -21,7 +21,7 @@ class Login extends Component {
 		event.preventDefault();
 		await this.props.userLogin({ email: this.state.email.trim(), password: this.state.password.trim() });
 		if (this.props.isLoggedIn && !this.props.showLoginError) {
-			this.props.history.push('/orgslist');
+			this.props.history.push('/orgs');
 		}
 	};
 

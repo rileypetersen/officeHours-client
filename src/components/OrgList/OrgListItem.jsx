@@ -1,9 +1,9 @@
 import React from 'react';
 import { Item, Button } from 'semantic-ui-react';
 
-const OrgListItem = ({ org, getOneOrg }) => {
+const OrgListItem = ({ org, getOneOrg, history }) => {
     return (
-        <Item onClick={ () => getOneOrg(org.id) } >
+        <Item onClick={ () => getOneOrg(org.id, org.name, history) } >
             <Item.Image size='small' src={ org.logo_img_url } />
             <Item.Content verticalAlign='middle'>
                 <Item.Header>{ org.name }</Item.Header>

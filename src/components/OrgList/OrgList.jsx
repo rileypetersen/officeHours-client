@@ -23,7 +23,7 @@ class OrgList extends Component {
                     <Form size='large' onSubmit={ this.handleLogin }>
                         <Segment raised>
                             <Item.Group divided link>
-                                { this.props.orgs ? this.props.orgs.map((org, i) => < OrgListItem key={ i } getOneOrg={ this.props.getOneOrg } org={ org } />) : '' }
+                                { this.props.orgs ? this.props.orgs.map((org, i) => < OrgListItem key={ i } history={ this.props.history } getOneOrg={ this.props.getOneOrg } org={ org } />) : '' }
                             </Item.Group>
                         </Segment>
                     </Form>
