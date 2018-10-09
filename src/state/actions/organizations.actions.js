@@ -26,11 +26,12 @@ export const GET_ALL_ORGS_SUCCESS = 'GET_ALL_ORGS_SUCCESS';
 export const GET_ALL_ORGS_FAILED = 'GET_ALL_ORGS_FAILED';
 
 
-export const getOneOrg = (id) => {
+export const getOneOrg = (id, name, history) => {
 	return async dispatch => {
 		try {
 			dispatch({ type: GET_ONE_ORG_PENDING })
 			const payload = await orgsModel.getOneOrg(id);
+			history.push(`/orgs/${name}`);
 			dispatch({ type: GET_ONE_ORG_SUCCESS, payload });
 		} catch (err) {
 			dispatch({ type: GET_ONE_ORG_FAILED })
