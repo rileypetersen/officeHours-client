@@ -1,18 +1,17 @@
 import React from 'react';
-import { Item, Button, List } from 'semantic-ui-react';
+import { Item, Button } from 'semantic-ui-react';
 
-const OrgListItem = ({ org }) => {
+const OrgListItem = ({ org, getOneOrg }) => {
     return (
-        <Item>
-            <Item.Image size='small' src='https://via.placeholder.com/300x300' />
-
+        <Item onClick={ () => getOneOrg(org.id) } >
+            <Item.Image size='small' src={ org.logo_img_url } />
             <Item.Content verticalAlign='middle'>
-                <Item.Header>{org.name}</Item.Header>
-                <Item.Description>{org.long_description}</Item.Description>
+                <Item.Header>{ org.name }</Item.Header>
+                <Item.Description>{ org.short_description }</Item.Description>
             </Item.Content>
             <Item.Content>
                 <Item.Extra>
-                    <Button floated='right'>{org.joined ? 'View' : 'Join'}</Button>
+                    <Button floated='right'>{ org.joined ? 'Leave' : 'Join' }</Button>
                 </Item.Extra>
             </Item.Content>
         </Item>
