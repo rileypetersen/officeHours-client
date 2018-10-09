@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Button, Form, Grid, Header, Image, Message, Segment, Transition } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import './Login.css';
 import { authActions } from '../state/actions';
 const { userLogin } = authActions;
@@ -79,7 +79,10 @@ class Login extends Component {
 };
 
 const mapStateToProps = (state) => {
-  	return { showLoginError: state.authReducers.showLoginError, isLoggedIn: state.authReducers.isLoggedIn }
+	return { 
+		showLoginError: state.authReducers.showLoginError, 
+		isLoggedIn: state.authReducers.isLoggedIn
+	}
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({ userLogin }, dispatch);
