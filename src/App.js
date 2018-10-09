@@ -8,6 +8,10 @@ import Register from './components/Register';
 import Home from './components/Home';
 import OrgList from './components/OrgList/OrgList';
 import OrgProfile from './components/Profile/OrgProfile';
+import OrgSessions from './components/OrgSessions'
+import OrgSession from './components/OrgSession'
+import OrgMeetings from './components/OrgMeetings'
+import OrgMeeting from './components/OrgMeeting'
 // import UserProfile from './components/Profile/UserProfile';
 
 
