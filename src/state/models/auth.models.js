@@ -24,6 +24,7 @@ const userRegister = async (newUser) => {;
     return createdUser.data;
 };
 
+// below same idea as line 3 ? cut the fat? this will run when the user clicks onto the first page always...? 
 const getUserViaToken = async () => {
     const token = await request(`/users/token`);
     return token.data;

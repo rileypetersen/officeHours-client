@@ -9,7 +9,8 @@ const {
 	USER_LOGOUT_FAILED,
 	USER_REGISTER_PENDING,
 	USER_REGISTER_SUCCESS,
-	USER_REGISTER_FAILED
+	USER_REGISTER_FAILED,
+	GET_USER_VIA_TOKEN
 } = authActions
 
 let INITIAL_STATE = {
@@ -40,6 +41,8 @@ export default (state = INITIAL_STATE, action) => {
       	return { ...state, showRegisterError: false, showRegisterSuccess: true }
     case USER_REGISTER_FAILED: 
 		return { ...state, showRegisterError: true, showRegisterSuccess: false, registerErrorMessage: action.payload }
+	case GET_USER_VIA_TOKEN:
+		return { ...state, }
 
     default:
       	return state
