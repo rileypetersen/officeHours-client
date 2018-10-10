@@ -18,14 +18,16 @@ class UserProfile extends Component {
         console.log(this.props.match.params)
         return (
         <div>
-
+            <p>I'M A USER!</p>
         </div>
         )
     }
 };
 
 const mapStateToProps = (state) => {
-  	return {  }
+    return { 
+        currentUser: state.usersReducers.currentUser
+    }
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);
