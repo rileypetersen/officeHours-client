@@ -6,12 +6,16 @@ const _authenticatedRequest = async () => {
 };
 
 const userLogin = async (body) => {
-    console.log('this far?')
     const auth = await request(`/users/login`, 'post', body);
     const [ scheme, token ] = auth.headers.auth.split(' ');
     localStorage.setItem('officeHoursToken', token);
     const response = await request(`/users/${auth.data}`);
     return response;
+};
+
+const userLogout = async () => {
+    localStorage.removeItem('officeHoursToken');
+    return {}
 };
 
 const userRegister = async (newUser) => {;
@@ -26,4 +30,4 @@ const getUserViaToken = async () => {
 };
 
 
-export { _authenticatedRequest, userLogin, userRegister, getUserViaToken };
+export { _authenticatedRequest, userLogin, userLogout , userRegister, getUserViaToken };
