@@ -1,7 +1,8 @@
 import request from '../../helpers/request';
 
+
 const _authenticatedRequest = async () => {
-    const authToken = request('/auth/token');
+    const authToken = request('/users/token');
     return authToken.data;
 };
 
@@ -24,11 +25,5 @@ const userRegister = async (newUser) => {;
     return createdUser.data;
 };
 
-// below same idea as line 3 ? cut the fat? this will run when the user clicks onto the first page always...? 
-const getUserViaToken = async () => {
-    const token = await request(`/users/token`);
-    return token.data;
-};
 
-
-export { _authenticatedRequest, userLogin, userLogout , userRegister, getUserViaToken };
+export { _authenticatedRequest, userLogin, userLogout , userRegister };

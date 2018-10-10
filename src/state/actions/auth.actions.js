@@ -47,11 +47,11 @@ export const userRegister = (newUser, history) => {
 	};
 };
 
-export const getUserViaToken = () => {
+export const _authenticatedRequest = () => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: USER_LOGIN_PENDING });
-			const token = await authModel.getUserViaToken(); 
+			const token = await authModel._authenticatedRequest(); 
 			dispatch({ type: GET_USER_VIA_TOKEN, payload: token });
 		}
 		catch (err) {
