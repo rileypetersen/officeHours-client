@@ -15,7 +15,7 @@ const userLogin = async (body) => {
 
 const userLogout = async () => {
     localStorage.removeItem('officeHoursToken');
-    return {}
+    return true;
 };
 
 const userRegister = async (newUser) => {;

@@ -58,10 +58,3 @@ export const getUserViaToken = () => {
 		}
 	};
 };
-
-export const userLogout = () => {
-  	return (dispatch) => {
-    	localStorage.removeItem('token');
-    	dispatch({ type: USER_LOGOUT });
-  	};
-};
