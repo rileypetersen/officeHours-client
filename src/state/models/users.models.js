@@ -20,25 +20,6 @@ const getOne = async (id) => {
     }
 }
 
-const loginUser = async (body) => {
-    try {
-        const response = await request(`/users/login`, 'post', body)
-        return response.data
-    }
-    catch(err) {
-        console.error(err)
-    }
-}
-
-const registerUser = async (body) => {
-    try {
-        const response = await request(`/users/register`, 'post', body)
-        return response.data
-    } catch (err) {
-        console.error(err)
-    }
-}
-
 const getUserTags = async (id) => {
     try {
         const response = await request(`/users/${id}/tags`)
@@ -76,4 +57,4 @@ const deleteUser = async (id) => {
 };
 
 
-export default { getAll, getOne, loginUser, registerUser, getUserTags, addOrRemoveTag, updateUser, deleteUser };
+export default { getAll, getOne, getUserTags, addOrRemoveTag, updateUser, deleteUser };
