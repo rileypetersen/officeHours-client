@@ -1,7 +1,7 @@
 import request from '../../helpers/request'
 
 
-const getAll = async () => {
+const getAllUsers = async () => {
     try {
         const response = await request(`/users`)
         console.log(response)
@@ -11,28 +11,9 @@ const getAll = async () => {
     }
 }
 
-const getOne = async (id) => {
+const getOneUser = async (id) => {
     try {
         const response = await request(`/users/${id}`)
-        return response.data
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-const loginUser = async (body) => {
-    try {
-        const response = await request(`/users/login`, 'post', body)
-        return response.data
-    }
-    catch(err) {
-        console.error(err)
-    }
-}
-
-const registerUser = async (body) => {
-    try {
-        const response = await request(`/users/register`, 'post', body)
         return response.data
     } catch (err) {
         console.error(err)
@@ -48,7 +29,7 @@ const getUserTags = async (id) => {
     }
 };
 
-const addOrRemoveTag = async (id, body) => {
+const addOrRemoveUserTag = async (id, body) => {
     try {
         const response = await request(`/users/${id}/tags`, 'post', body)
         return response.data
@@ -76,4 +57,4 @@ const deleteUser = async (id) => {
 };
 
 
-export default { getAll, getOne, loginUser, registerUser, getUserTags, addOrRemoveTag, updateUser, deleteUser };
+export default { getAllUsers, getOneUser, getUserTags, addOrRemoveUserTag, updateUser, deleteUser };

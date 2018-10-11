@@ -2,8 +2,6 @@
 import React from 'react';
 
 //Semantic 
-
-import 'semantic-ui-css/semantic.min.css'
 import { 
   Button, 
   Card, 
@@ -19,28 +17,114 @@ import {
 } 
 from 'semantic-ui-react';
 
+import 'semantic-ui-css/semantic.min.css'
+
+import {
+  DateInput,
+  TimeInput,
+  DateTimeInput,
+  DatesRangeInput
+} from 'semantic-ui-calendar-react';
 
 //Stories
 import { storiesOf } from '@storybook/react';
 
-// Add-ons
+// // Add-ons
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
-import { setOptions } from '@storybook/addon-options'
+// import { linkTo } from '@storybook/addon-links';
 
 
 
-//                //
-//                //
-//     Stories    //
-//                //
-//                //
+//Calendar
+storiesOf('datePicker', module)
+  // .add('inlineCalendar', () => 
+  //      <Form>
+  //        <DateInput
+  //          inline
+  //          name="date"
+  //         // value={today}
+  //          onChange={this.handleDateChange} />
+  //      </Form>
+  //    )
+
+.add('inlineCalendar', () => (
+  class DateTimeFormInline extends React.Component {
+  handleChange = (event, {name, value}) => {
+     if (this.state.hasOwnProperty(name)) {
+       this.setState({ [name]: value });
+     }
+   }
+  
+   render() {
+     return (
+       <Form>
+         <DateInput
+           inline
+           name="date"
+           value={this.state.date}
+           onChange={this.handleDateChange} />
+       </Form>
+     );
+   }
+ }
+))
+
+storiesOf('dtpicker', module)
+.add('dropdownPicker', () => (
+class DateTimeForm extends React.Component {
+  constructor(props) {
+    super(props);
+ 
+    this.state = {
+      date: '',
+      time: '',
+      dateTime: '',
+      datesRange: ''
+    };
+  }
+ 
+  handleChange = (event, {name, value}) => {
+    if (this.state.hasOwnProperty(name)) {
+      this.setState({ [name]: value });
+    }
+  }
+ 
+  render() {
+    return (
+      <Form>
+        <DateInput
+          name="date"
+          placeholder="Date"
+          value={this.state.date}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <TimeInput
+          name="time"
+          placeholder="Time"
+          value={this.state.time}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <DateTimeInput
+          name="dateTime"
+          placeholder="Date Time"
+          value={this.state.dateTime}
+          iconPosition="left"
+          onChange={this.handleChange} />
+        <DatesRangeInput
+          name="datesRange"
+          placeholder="From - To"
+          value={this.state.datesRange}
+          iconPosition="left"
+          onChange={this.handleChange} />
+      </Form>
+    );
+  }
+}
+))
 
 
-
-
- //Button
+//Button
 storiesOf('Button', module)
   .add('with text', () => 
     <Button onClick={action('clicked')}>Hello Button</Button>)

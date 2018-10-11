@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import './App.css'
-import { Dimmer, Loader } from 'semantic-ui-react';
+import { } from 'semantic-ui-react';
 
 import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import OrgList from './components/OrgList/OrgList';
 import Profile from './components/Profile/Profile';
-// import OrgSessions from './components/OrgSessions'
-// import OrgSession from './components/OrgSession'
-// import OrgMeetings from './components/OrgMeetings'
-// import OrgMeeting from './components/OrgMeeting'
-// import UserProfile from './components/Profile/UserProfile';
 
 
 class App extends Component {
@@ -31,7 +26,7 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="App">
-				Currently Under Construction. Please visit our <a  rel="noopener noreferrer" target="_blank" href="https://github.com/just-hey/officeHours-client">repo</a> on GitHub to learn more.
+				Currently Under Construction. Please visit our <a rel="noopener noreferrer" target="_blank" href="https://github.com/just-hey/officeHours-client">repo</a> on GitHub to learn more.
 				<Switch>
 					<Route exact path="/" component={ () => <Redirect to="/login" /> } />
 					<Route exact path="/login" component={ Login }/>

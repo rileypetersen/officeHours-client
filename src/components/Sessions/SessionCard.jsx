@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Button, Image, Label } from 'semantic-ui-react';
-import { orgsActions } from '../../state/actions';
-const {  } = orgsActions;
+import { Card, Image, Label, Button } from 'semantic-ui-react';
+import { usersActions } from '../../state/actions';
 
-class OrgProfile extends Component {
+const {  } = usersActions;
+
+class SessionCard extends Component {
     constructor(props) {
         super(props)
     }
@@ -15,11 +16,7 @@ class OrgProfile extends Component {
     }
 
     render() {
-        console.log(this.props.match.params)
-        console.log('the org!', this.props.currentOrg)
         return (
-        <div>
-            <p>I'M AN ORG!</p>
             <Card>
                 <Card.Content>
                     <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
@@ -29,7 +26,7 @@ class OrgProfile extends Component {
                     <Label size='mini' padded>Design</Label>
                     <Label size='mini' padded>Software</Label>
                     <Card.Description>
-                    Steve wants to add you to the group <strong>best friends</strong>
+                        Steve wants to add you to the group <strong>best friends</strong>
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
@@ -39,17 +36,16 @@ class OrgProfile extends Component {
                     <Button color="green" size="mini" compact>12:00 AM</Button>
                 </Card.Content>
             </Card>
-        </div>
         )
     }
 };
 
 const mapStateToProps = (state) => {
     return { 
-        currentOrg: state.orgsReducers.currentOrg
+        
     }
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrgProfile));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionCard));
