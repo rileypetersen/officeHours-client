@@ -6,8 +6,13 @@ const getAllOrgs = async () => {
 };
 
 const getOneOrg = async (id, history) => {
-    const response = await request(`/organizations/${id}`)
+    const response = await request(`/organizations/${id}`);
     return response.data;
 };
 
-export { getAllOrgs, getOneOrg };
+const addOrgUser = async (id, body) => {
+    const response = await request(`/organizations/${id}/users`, 'post', body);
+    return response.data;
+};
+
+export { getAllOrgs, getOneOrg, addOrgUser };

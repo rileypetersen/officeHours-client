@@ -7,11 +7,11 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import OrgList from './components/OrgList/OrgList';
-import OrgProfile from './components/Profile/OrgProfile';
-import OrgSessions from './components/OrgSessions'
-import OrgSession from './components/OrgSession'
-import OrgMeetings from './components/OrgMeetings'
-import OrgMeeting from './components/OrgMeeting'
+import Profile from './components/Profile/Profile';
+// import OrgSessions from './components/OrgSessions'
+// import OrgSession from './components/OrgSession'
+// import OrgMeetings from './components/OrgMeetings'
+// import OrgMeeting from './components/OrgMeeting'
 // import UserProfile from './components/Profile/UserProfile';
 
 
@@ -24,8 +24,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		// mocks api call...
-		setTimeout(() => this.setState({ isLoading: false }), 500);
+		
 	}
 
 	render() {
@@ -39,12 +38,7 @@ class App extends Component {
 					<Route exact path="/register" component={ Register }/>
 					<Route exact path="/home" component={ Home }/>
 					<Route exact path="/orgs" component={ OrgList }/>
-					<Route exact path="/org/:name" component={ OrgProfile }/>
-					{/* <Route exact path="/org/:name/sessions" component={ OrgSessions }/>
-					<Route exact path="/org/:name/session/:sid" component={ OrgSession }/>
-					<Route exact path="/org/:name/session/:sid/meetings" component={ OrgMeetings }/>
-					<Route exact path="/org/:name/session/:sid/meeting/:mid" component={ OrgMeeting }/>
-					<Route exact path="/user/:name" component={ UserProfile }/> */}
+					<Route exact path="/:name" component={ Profile }/>
 				</Switch>
 				</div>
 			</Router>

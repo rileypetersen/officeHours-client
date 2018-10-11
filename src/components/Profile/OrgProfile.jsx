@@ -18,14 +18,16 @@ class OrgProfile extends Component {
         console.log(this.props.match.params)
         return (
         <div>
-
+            <p>I'M AN ORG!</p>
         </div>
         )
     }
 };
 
 const mapStateToProps = (state) => {
-  	return {  }
+    return { 
+        currentOrg: state.orgsReducers.currentOrg
+    }
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);

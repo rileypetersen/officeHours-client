@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {  } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
+import OrgProfile from './OrgProfile'
+import UserProfile from './UserProfile'
+
 const {  } = usersActions;
 
 class Profile extends Component {
@@ -16,15 +19,17 @@ class Profile extends Component {
 
     render() {
         return (
-        <div>
-
-        </div>
+            <div>
+                { this.props.currentOrg ? <OrgProfile /> : <UserProfile />}
+            </div>
         )
     }
 };
 
 const mapStateToProps = (state) => {
-  	return {  }
+    return { 
+        currentOrg: state.orgsReducers.currentOrg
+    }
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);

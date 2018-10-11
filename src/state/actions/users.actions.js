@@ -16,22 +16,6 @@ import { usersModel } from '../models';
 // 	};
 // };
 
-// export const loginUser = (body) => {
-// 	return async dispatch => {
-// 		console.log('im in actions!?', body)
-
-// 		const payload = await usersModel.default.loginUser(body);
-// 		dispatch({ type: LOGIN_USER, payload });
-// 	};
-// };
-
-// export const registerUser = (body) => {
-// 	return async dispatch => {
-// 		const payload = await usersModel.registerUser(body);
-// 		dispatch({ type: REGISTER_USER, payload });
-// 	};
-// };
-
 // export const getOneUserTags = (id) => {
 // 	return async dispatch => {
 // 		const payload = await usersModel.getUserTags(id);

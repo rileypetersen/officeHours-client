@@ -1,17 +1,22 @@
 import request from '../../helpers/request';
 
+
 const _authenticatedRequest = async () => {
-    const authToken = request('/auth/token');
+    const authToken = request('/users/token');
     return authToken.data;
 };
 
 const userLogin = async (body) => {
-    console.log('this far?')
     const auth = await request(`/users/login`, 'post', body);
     const [ scheme, token ] = auth.headers.auth.split(' ');
     localStorage.setItem('officeHoursToken', token);
     const response = await request(`/users/${auth.data}`);
     return response;
+};
+
+const userLogout = async () => {
+    localStorage.removeItem('officeHoursToken');
+    return true;
 };
 
 const userRegister = async (newUser) => {;
@@ -20,10 +25,5 @@ const userRegister = async (newUser) => {;
     return createdUser.data;
 };
 
-const getUserViaToken = async () => {
-    const token = await request(`/users/token`);
-    return token.data;
-};
 
-
-export { _authenticatedRequest, userLogin, userRegister, getUserViaToken };
+export { _authenticatedRequest, userLogin, userLogout , userRegister };

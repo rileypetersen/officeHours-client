@@ -2,22 +2,27 @@ import request from '../../helpers/request'
 
 
 const getAll = async () => {
-    const response = await request(`/users`)
-    console.log(response)
-    return response.data
+    try {
+        const response = await request(`/users`)
+        console.log(response)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 const getOne = async (id) => {
-    const response = await request(`/users/${id}`)
-    console.log(response)
-    return response.data
+    try {
+        const response = await request(`/users/${id}`)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 const loginUser = async (body) => {
     try {
-        console.log(body)
         const response = await request(`/users/login`, 'post', body)
-        console.log('response body?',response)
         return response.data
     }
     catch(err) {
@@ -26,34 +31,48 @@ const loginUser = async (body) => {
 }
 
 const registerUser = async (body) => {
-    const response = await request(`/users/register`, 'post', body)
-    return response.data
+    try {
+        const response = await request(`/users/register`, 'post', body)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 const getUserTags = async (id) => {
-    const response = await request(`/users/${id}/tags`)
-    return response.data
+    try {
+        const response = await request(`/users/${id}/tags`)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 };
 
 const addOrRemoveTag = async (id, body) => {
-    const response = await request(`/users/${id}/tags`, 'post', body)
-    console.log('response body?',response.data)
-    console.log('response headers?',response.headers)
-    return response.data
+    try {
+        const response = await request(`/users/${id}/tags`, 'post', body)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 };
 
 const updateUser = async (id, body) => {
-    const response = await request(`/users/${id}`, 'patch', body)
-    console.log('response body?',response.data)
-    console.log('response headers?',response.headers)
-    return response.data
+    try {
+        const response = await request(`/users/${id}`, 'patch', body)
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 };
 
 const deleteUser = async (id) => {
-    const response = await request(`/users/${id}`, 'delete')
-    console.log('response body?',response.data)
-    console.log('response headers?',response.headers)
-    return response.data
+    try {
+        const response = await request(`/users/${id}`, 'delete')
+        return response.data
+    } catch (err) {
+        console.error(err)
+    }
 };
 
 
