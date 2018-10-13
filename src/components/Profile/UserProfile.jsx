@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Grid, Image, Button, Label } from 'semantic-ui-react';
+import { Button, Card, Container, Grid, Image, Item, Label, Segment } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
 const {  } = usersActions;
 
@@ -12,32 +12,37 @@ class UserProfile extends Component {
     }
 
     componentDidMount = async () => {
+      
     }
 
     render() {
         console.log(this.props.member)
         return (
-            <Grid.Column>
-            <Card>
-                <Card.Content>
-                    <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                    <Card.Header>{this.props.member.first_name} {this.props.member.last_name}</Card.Header>
-                    <Card.Meta>Friends of Elliot</Card.Meta>
-                    <Label size='mini' padded>Product</Label>
-                    <Label size='mini' padded>Design</Label>
-                    <Label size='mini' padded>Software</Label>
-                    <Card.Description>
-                        Steve wants to add you to the group <strong>best friends</strong>
-                    </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                </Card.Content>
-            </Card>
-        </Grid.Column>
+            <Container>
+                <Segment>
+                    <Item.Group>
+                        <Item>
+                            <Item.Image floated='left' size='small' src='https://via.placeholder.com/160x160' />
+                            <Item.Content>
+                                {/* Name */}
+                                <Item.Header as='a' as='h2'>{this.props.member.first_name} {this.props.member.last_name}</Item.Header>
+                                {/* Short description */}
+                                <Item.Meta>Product Manager at Amazon</Item.Meta>
+                                {/* Tags, etc */}
+                                <Item.Extra>
+                                    <Label compact>Product</Label>
+                                    <Label compact>Design</Label>
+                                    <Label compact>Marketing</Label>
+                                </Item.Extra>
+                                {/* Long description */}
+                                <Item.Description>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </Item.Description>
+                            </Item.Content>
+                        </Item>
+                    </Item.Group>
+                </Segment>
+            </Container>
         )
     }
 };
