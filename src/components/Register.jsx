@@ -9,11 +9,12 @@ const { userRegister } = authActions;
 
 class Register extends Component {
     state = {
-        first_name: 'tester',
-        last_name: 'test',
-        email: 'test5@test.com',
-        password: 'test',
-        password2: 'test'
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        password2: '', 
+        showPasswordError: false
     };
 
     handleChange = (event) => {
@@ -22,14 +23,14 @@ class Register extends Component {
 
     handleRegister = async (event) => {
         event.preventDefault();
-        if (this.state.password !== this.state.password2) console.log('must match!');
-		await this.props.userRegister(this.state, this.props.history);
-		if (this.props.showRegisterSuccess) setTimeout(() => this.props.history.push('/login'), 2000);
+        if (this.state.password !== this.state.password2) this.setState({ showPasswordError: true });
+        else {
+            this.setState({ showPasswordError: false });
+            let { showPasswordError, ...sendingState } = this.state;
+            await this.props.userRegister(sendingState, this.props.history);
+            if (this.props.showRegisterSuccess) setTimeout(() => this.props.history.push('/login'), 2000);
+        }
     };
-
-    componentDidMount() {
-		// setTimeout(() => this.setState({ visible: true }), 1);
-	}
 
     render () {
         return (
@@ -47,7 +48,6 @@ class Register extends Component {
                                     label='First name'
                                     placeholder='John'
                                     onChange={ (e) => this.handleChange(e) }
-                                    value="tester"
                                 />
                                 <Form.Input
                                     required
@@ -55,8 +55,18 @@ class Register extends Component {
                                     label='Last name'
                                     placeholder='Doe'
                                     onChange={ (e) => this.handleChange(e) }
-                                    value="test"
                                 />
+                                { this.props.showRegisterError ? 
+                                <Form.Input
+                                    required 
+                                    name='email'
+                                    label='Email'
+                                    iconPosition='left' 
+                                    placeholder='john.doe@email.com'
+                                    error
+                                    onChange={ (e) => this.handleChange(e) }
+                                /> 
+                                :
                                 <Form.Input
                                     required 
                                     name='email'
@@ -64,8 +74,22 @@ class Register extends Component {
                                     iconPosition='left' 
                                     placeholder='john.doe@email.com'
                                     onChange={ (e) => this.handleChange(e) }
-                                    value="test1@test.com"
-                                />     
+                                /> }
+
+                                { this.state.showPasswordError ? 
+                                <Form.Input
+                                    required
+                                    name='password'
+                                    label='Password'
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    error
+                                    onChange={ (e) => this.handleChange(e) }
+                                />
+                                :
                                 <Form.Input
                                     required
                                     name='password'
@@ -76,8 +100,21 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
-                                    value="test"
+                                /> }
+                                { this.state.showPasswordError ?
+                                <Form.Input
+                                    required
+                                    name='password2'
+                                    label='Re-Entered Password must match'
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    error
+                                    onChange={ (e) => this.handleChange(e) }
                                 />
+                                :
                                 <Form.Input
                                     required
                                     name='password2'
@@ -88,8 +125,7 @@ class Register extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={ (e) => this.handleChange(e) }
-                                    value="test"
-                                />
+                                /> }
                                 <Button animated='fade' color='purple' fluid size='large'>
                                     <Button.Content visible>Register</Button.Content>
                                     <Button.Content hidden>REGISTER</Button.Content>

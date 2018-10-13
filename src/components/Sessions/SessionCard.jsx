@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Image, Label, Button } from 'semantic-ui-react';
+import { Card, Image, Grid, Label, Button } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
 
 const {  } = usersActions;
@@ -17,10 +17,12 @@ class SessionCard extends Component {
 
     render() {
         return (
+
+        <Grid.Column>
             <Card>
                 <Card.Content>
                     <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                    <Card.Header>Steve Sanders</Card.Header>
+                    <Card.Header>{this.props.session}</Card.Header>
                     <Card.Meta>Friends of Elliot</Card.Meta>
                     <Label size='mini' padded>Product</Label>
                     <Label size='mini' padded>Design</Label>
@@ -36,6 +38,7 @@ class SessionCard extends Component {
                     <Button color="green" size="mini" compact>12:00 AM</Button>
                 </Card.Content>
             </Card>
+        </Grid.Column>
         )
     }
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, Item, Label, Segment } from 'semantic-ui-react';
+import { Button, Card, Container, Grid, Image, Item, Label, Segment } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
 const {  } = usersActions;
 
@@ -12,12 +12,12 @@ class UserProfile extends Component {
     }
 
     componentDidMount = async () => {
+      
     }
 
     render() {
-        console.log(this.props.match.params)
+        console.log(this.props.member)
         return (
-
             <Container>
                 <Segment>
                     <Item.Group>
@@ -25,7 +25,7 @@ class UserProfile extends Component {
                             <Item.Image floated='left' size='small' src='https://via.placeholder.com/160x160' />
                             <Item.Content>
                                 {/* Name */}
-                                <Item.Header as='a' as='h2'>Header</Item.Header>
+                                <Item.Header as='a' as='h2'>{this.props.member.first_name} {this.props.member.last_name}</Item.Header>
                                 {/* Short description */}
                                 <Item.Meta>Product Manager at Amazon</Item.Meta>
                                 {/* Tags, etc */}
