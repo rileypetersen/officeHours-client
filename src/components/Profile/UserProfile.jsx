@@ -16,27 +16,28 @@ class UserProfile extends Component {
     }
 
     render() {
-        console.log(this.props.member)
+        let { profile_img_url, first_name, last_name, user_title , short_description, long_description, tags } = this.props.member
         return (
             <Container>
                 <Segment>
                     <Item.Group>
                         <Item>
-                            <Item.Image floated='left' size='small' src='https://via.placeholder.com/160x160' />
+                            <Item.Image floated='left' size='small' src={ profile_img_url } />
                             <Item.Content>
                                 {/* Name */}
-                                <Item.Header as='a' as='h2'>{this.props.member.first_name} {this.props.member.last_name}</Item.Header>
+                                <Item.Header as='a' as='h2'>{ first_name } { last_name }</Item.Header>
+                                <Item.Extra>
+                                    { user_title }
+                                </Item.Extra>
                                 {/* Short description */}
-                                <Item.Meta>Product Manager at Amazon</Item.Meta>
+                                <Item.Meta>{ short_description }</Item.Meta>
                                 {/* Tags, etc */}
                                 <Item.Extra>
-                                    <Label compact>Product</Label>
-                                    <Label compact>Design</Label>
-                                    <Label compact>Marketing</Label>
+                                    { tags.map(tag =>  <Label compact>{tag.tag_name}</Label>) }
                                 </Item.Extra>
                                 {/* Long description */}
                                 <Item.Description>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    { long_description }
                                 </Item.Description>
                             </Item.Content>
                         </Item>

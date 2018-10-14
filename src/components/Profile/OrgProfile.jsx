@@ -13,11 +13,11 @@ class OrgProfile extends Component {
     }
 
     componentDidMount = async () => {
+        
     }
 
     render() {
-        console.log('the org!', this.props.currentOrg)
-        const { logo_img_url, name, short_description, long_description, users } = this.props.currentOrg
+        const { logo_img_url, name, short_description, long_description, users, sessions } = this.props.currentOrg
         return (
             <Container>
                 <Segment>
@@ -44,7 +44,7 @@ class OrgProfile extends Component {
                         </Item>
                     </Item.Group>
                 </Segment>
-                { <Tabs orgMembers={ users } /> }
+                { <Tabs orgMembers={ users } sessions={ sessions } /> }
             </Container>
         )
     }

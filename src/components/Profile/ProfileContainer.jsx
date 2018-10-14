@@ -20,7 +20,7 @@ class ProfileContainer extends Component {
         return (
             <div>
                 <Grid relaxed='very' columns={4}>
-                    { this.props.members.map(member => <UserProfile member={member} />) }
+                    { this.props.members.map((member, i) => <UserProfile key={ i } member={member} />) }
                 </Grid>
             </div>
         )
