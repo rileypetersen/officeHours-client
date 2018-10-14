@@ -111,7 +111,7 @@ export const deleteOrgUser = (id) => {
 	}
 };
 
-export const getAllOrgs = (usersOrgs) => {
+export const getAllOrgs = (usersOrgs = []) => {
 	return async dispatch => {
 		try {
 			dispatch({ type: GET_ALL_ORGS_PENDING })
