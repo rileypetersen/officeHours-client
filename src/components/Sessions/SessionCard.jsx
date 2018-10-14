@@ -19,7 +19,9 @@ class SessionCard extends Component {
     render() {
         let meetings = this.props.session.meetings || []
         let { date, location } = this.props.session
-        let { profile_img_url, first_name, last_name } = this.props.session.host || { profile_img_url: 'https://avataaars.io/?avatarStyle=Circle&topType=LongHairNotTooLong&accessoriesType=Blank&hairColor=PastelPink&facialHairType=Blank&facialHairColor=BlondeGolden&clotheType=GraphicShirt&clotheColor=Black&graphicType=Resist&eyeType=WinkWacky&eyebrowType=SadConcernedNatural&mouthType=Default&skinColor=DarkBrown', first_name: 'Bob', last_name: 'Dole' }
+        let profile_img_url = this.props.session.host.profile_img_url || 'http://profilepicturesdp.com/wp-content/uploads/2018/06/default-profile-picture-circle-5.png'
+        let first_name = this.props.session.host.first_name || 'HOST'
+        let last_name = this.props.session.host.last_name || 'NEEDED' 
         return (
             <Grid.Column>
                 <Card>
