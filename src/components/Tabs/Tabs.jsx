@@ -20,10 +20,8 @@ class Tabs extends Component {
     }
 
     render() {
-        const sessions = [ 'session #1', 'session #2', 'session #3', 'session #4', 'session #5', 'session #6', 'session #7' ]
-        const members = [ 'member #1', 'member #2', 'member #3', 'member #4', 'member #5', 'member #6', 'member #7' ]
         const  panes = [
-            { menuItem: 'Sessions', render: () => <Tab.Pane attached={false}> { <SessionContainer sessions={ sessions } /> } </Tab.Pane> },
+            { menuItem: 'Sessions', render: () => <Tab.Pane attached={false}> { <SessionContainer sessions={ this.props.sessions } /> } </Tab.Pane> },
             { menuItem: 'Members', render: () => <Tab.Pane attached={false}> { <ProfileContainer members={ this.props.orgMembers } /> } </Tab.Pane> },
             { menuItem: 'Admin', render: () => <Tab.Pane attached={false}>Admin stuff?</Tab.Pane> },
         ]
