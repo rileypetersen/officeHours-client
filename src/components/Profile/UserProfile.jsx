@@ -25,7 +25,7 @@ class UserProfile extends Component {
             long_description,
             tags 
         } = this.props.member
-        
+
         return (
             <Container>
                 <Segment>
@@ -43,7 +43,7 @@ class UserProfile extends Component {
                                     { short_description }
                                 </Item.Meta>
                                 <Item.Extra>
-                                    { tags.map(tag =>  <Label compact>{tag.tag_name}</Label>) }
+                                    { tags.map((tag, i) =>  <Label key={ i } compact>{tag.tag_name}</Label>) }
                                 </Item.Extra>
                                 <Item.Description>
                                     { long_description }
