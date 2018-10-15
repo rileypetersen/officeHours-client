@@ -2,14 +2,14 @@
 import React, { Component } from 'react';
 
 
-//Semantic 
-import { 
-  Button, 
-  Card, 
-  Icon, 
-  Image, 
-  Label, 
-  Tab, 
+//Semantic
+import {
+  Button,
+  Card,
+  Icon,
+  Image,
+  Label,
+  Tab,
   Form,
   Input,
   Container,
@@ -21,7 +21,7 @@ import {
   Divider,
   Header,
   Accordion
-} 
+}
 from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css'
@@ -41,7 +41,6 @@ import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
-import JSXAddon from 'storybook-addon-jsx';
 
 
 
@@ -49,6 +48,7 @@ import { ProfilePage } from './ProfilePage';
 import { SessionCard } from './SessionContainer';
 import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
+import { CreateSession } from './CreateSession';
 
 
 
@@ -56,7 +56,7 @@ import { SessionHost } from './SessionHost';
 // storiesOf('UserProfile2', module)
 // .add('default', () => (
 //  <Profile></Profile>
-  
+
 // ))
 
 
@@ -68,7 +68,7 @@ import { SessionHost } from './SessionHost';
 
 //Button
 // storiesOf('Button', module)
-//   .add('with text', () => 
+//   .add('with text', () =>
 //     <Button onClick={action('clicked')}>Hello Button</Button>)
 //   .add('with some emoji', () => (
 //     <Button onClick={action('clicked')}>
@@ -114,7 +114,7 @@ import { SessionHost } from './SessionHost';
 //                 <Button basic color='green'>
 //                   Approve
 //                 </Button>
-//             
+//
 
 
 
@@ -167,7 +167,7 @@ storiesOf('createProfile', module)
         <Form.Group widths='equal'>
           <Form.Input label='Title' placeholder='Product Designer at Amazon' />
           <Form.Input label='Linkedin' placeholder='http://www.linkedin.com/in/...' />
-        </Form.Group>  
+        </Form.Group>
         <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
         <Form.Dropdown  label='Tags' placeholder='Tag' fluid multiple search selection options={[
           {key: "kills", value: 'kills', text: "kills"},
@@ -206,7 +206,7 @@ storiesOf('createSession', module)
         <Form.Group widths='equal'>
           <Form.Input label='Title' placeholder='Product Designer at Amazon' />
           <Form.Input label='Linkedin' placeholder='http://www.linkedin.com/in/...' />
-        </Form.Group>  
+        </Form.Group>
         <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
         <Form.Dropdown  label='Tags' placeholder='Tag' fluid multiple search selection options={[
           {key: "kills", value: 'kills', text: "kills"},
