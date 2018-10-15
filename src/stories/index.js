@@ -1,7 +1,6 @@
 //React
 import React, { Component } from 'react';
 
-
 //Semantic
 import {
   Button,
@@ -37,56 +36,21 @@ import {
 //Stories
 import { setAddon, storiesOf } from '@storybook/react';
 
-// // Add-ons
+// Add-ons
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
 
-
-
+// Components
 import { ProfilePage } from './ProfilePage';
 import { SessionCard } from './SessionContainer';
 import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
 import { CreateSession } from './CreateSession';
 
-
-
-
-// storiesOf('UserProfile2', module)
-// .add('default', () => (
-//  <Profile></Profile>
-
-// ))
-
-
-// storiesOf('MeetingDetail', module)
-// .add('default', ()=>(
-// <Segment></Segment>
-// ))
-
-
-//Button
-// storiesOf('Button', module)
-//   .add('with text', () =>
-//     <Button onClick={action('clicked')}>Hello Button</Button>)
-//   .add('with some emoji', () => (
-//     <Button onClick={action('clicked')}>
-//       <span role="img" aria-label="so cool">
-//         😀 😎 👍 💯
-//       </span>
-//     </Button>
-//   ))
-//   .add('Primary', () => <Button primary>Test Primary</Button>),
-
-//User Profile
-
-
 //Profile Card
 // storiesOf('SessionCardWide', module)
 //   .add('default', () => (
 //     <Container>
-
 //       <Card centered fluid>
 //         <Grid columns="equal" padded relaxed>
 //           <Grid.Row divided="vertically">
@@ -114,11 +78,68 @@ import { CreateSession } from './CreateSession';
 //                 <Button basic color='green'>
 //                   Approve
 //                 </Button>
-//
+//               </Card.Content>
+//             </Grid.Column>
+//           </Grid.Row>
+//         </Grid>
+//       </Card>
+//     </Container>
+//   ))
 
-
-
-
+storiesOf('SessionSegments2', module)
+  .add('default', () => (
+    <Container>
+      {/* Border */}
+      <Segment padded>
+        {/* Arrangement */}
+        <Grid stackable columns='equal' verticalAlign='top'>
+          {/* Row - Main two sections */}
+          <Grid.Row stretched>
+            {/* Main left section */}
+            <Grid.Column>
+              {/* Main Profile layout*/}
+              <Grid.Row>
+                {/* Main profile
+                 <Item.Group>
+                  <Item>
+                    <Item.Content>
+                      <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+                      <Header>
+                        Steve Sanders
+                      <Header.Subheader>Product Manager at Amazon</Header.Subheader>
+                      </Header>
+                      <Item.Meta>
+                        <Label size='tiny'>Product</Label>
+                        <Label size='tiny'>Design</Label>
+                        <Label size='tiny'>Marketing</Label>
+                      </Item.Meta>
+                      <Divider hidden />
+                      <Item.Description>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      </Item.Description>
+                      <Item.Extra>
+                        <Button floated='right' primary>
+                          Full Profile
+                          <Icon name='right chevron' />
+                        </Button>
+                      </Item.Extra>
+                    </Item.Content>
+                  </Item>
+                </Item.Group> */}
+              </Grid.Row>
+              <Grid.Row>
+            {/* Accordion */}
+              </Grid.Row>
+            </Grid.Column>
+            <Grid.Column>
+              session details
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+    </Container>
+  ))
+      
 storiesOf('SessionCardStacked', module)
 .add('SessionCardStacked', () => (
   <Card>
@@ -149,12 +170,8 @@ var panes = [
 ]
 
 storiesOf('tabs', module)
-// .add('tabs', () => (
   .add('TabExampleSecondaryPointing', () => (
     <Tab menu={{ secondary: true, pointing: true }} panes={panes} />)),
-
-
-//Forms
 
 storiesOf('createProfile', module)
 .add('createProfile', () =>(
