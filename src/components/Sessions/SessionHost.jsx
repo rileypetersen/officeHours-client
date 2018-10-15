@@ -13,7 +13,7 @@ class SessionHost extends Component {
     }
 
     componentDidMount = async () => {
-        
+
     }
 
     render() {
@@ -21,12 +21,12 @@ class SessionHost extends Component {
         let { date, location } = this.props.session
         let profile_img_url = this.props.session.host.profile_img_url || 'http://profilepicturesdp.com/wp-content/uploads/2018/06/default-profile-picture-circle-5.png'
         let first_name = this.props.session.host.first_name || 'HOST'
-        let last_name = this.props.session.host.last_name || 'NEEDED' 
-        let tags = this.props.session.host.tags || 'product' 
+        let last_name = this.props.session.host.last_name || 'NEEDED'
+        let tags = this.props.session.host.tags || 'product'
         let short_description = this.props.session.host.short_description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
         let long_description = this.props.session.host.long_description || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
-        return (         
+        return (
             <Item.Group>
                   <Item>
                   <Item.Image src= { profile_img_url } size='tiny' />
@@ -61,14 +61,14 @@ class SessionHost extends Component {
                     </Item.Content>
                   </Item>
                 </Item.Group>
-        
+
         )
     }
 };
 
 const mapStateToProps = (state) => {
-    return { 
-        
+    return {
+
     }
 };
 
