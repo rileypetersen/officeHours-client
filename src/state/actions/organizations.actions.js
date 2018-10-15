@@ -31,8 +31,8 @@ export const getOneOrg = (id, name, history) => {
 		try {
 			dispatch({ type: GET_ONE_ORG_PENDING })
 			const payload = await orgsModel.getOneOrg(id);
-			history.push(`/${name.split(' ').join('_')}`);
 			dispatch({ type: GET_ONE_ORG_SUCCESS, payload });
+			history.push(`/${name.split(' ').join('_')}`);
 		} catch (err) {
 			dispatch({ type: GET_ONE_ORG_FAILED })
 		}
@@ -111,7 +111,7 @@ export const deleteOrgUser = (id) => {
 	}
 };
 
-export const getAllOrgs = (usersOrgs) => {
+export const getAllOrgs = (usersOrgs = []) => {
 	return async dispatch => {
 		try {
 			dispatch({ type: GET_ALL_ORGS_PENDING })

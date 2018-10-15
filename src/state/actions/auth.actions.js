@@ -47,7 +47,7 @@ export const userRegister = (newUser, history) => {
 	};
 };
 
-export const _authenticatedRequest = () => {
+export const _authenticatedRequest = (history) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: USER_LOGIN_PENDING });
@@ -55,6 +55,7 @@ export const _authenticatedRequest = () => {
 			dispatch({ type: GET_USER_VIA_TOKEN, payload: token });
 		}
 		catch (err) {
+			history.push('/login')
 			dispatch({ type: NOT_LOGGED_IN, payload: err });
 		}
 	};

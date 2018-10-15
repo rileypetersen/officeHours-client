@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Button, Image, Label } from 'semantic-ui-react';
+import { Container, Item, Label, Segment } from 'semantic-ui-react';
+import Tabs from '../Tabs/Tabs'
 import { orgsActions } from '../../state/actions';
 const {  } = orgsActions;
 
@@ -12,34 +13,47 @@ class OrgProfile extends Component {
     }
 
     componentDidMount = async () => {
+        
     }
 
     render() {
-        console.log(this.props.match.params)
-        console.log('the org!', this.props.currentOrg)
+        const { 
+            logo_img_url,
+            name,
+            short_description,
+            long_description,
+            users,
+            sessions 
+        } = this.props.currentOrg
+        
         return (
-        <div>
-            <p>I'M AN ORG!</p>
-            <Card>
-                <Card.Content>
-                    <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                    <Card.Header>Steve Sanders</Card.Header>
-                    <Card.Meta>Friends of Elliot</Card.Meta>
-                    <Label size='mini' padded>Product</Label>
-                    <Label size='mini' padded>Design</Label>
-                    <Label size='mini' padded>Software</Label>
-                    <Card.Description>
-                    Steve wants to add you to the group <strong>best friends</strong>
-                    </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                    <Button color="green" size="mini" compact>12:00 AM</Button>
-                </Card.Content>
-            </Card>
-        </div>
+            <Container>
+                <Segment>
+                    <Item.Group>
+                        <Item>
+                            <Item.Image floated='left' size='small' src={ logo_img_url } />
+                            <Item.Content>
+                                <Item.Header as='a' as='h2'>
+                                    { name }
+                                </Item.Header>
+                                <Item.Meta>
+                                    { short_description }
+                                </Item.Meta>
+                                {/* Tags, etc */}
+                                <Item.Extra>
+                                    <Label compact>Product</Label>
+                                    <Label compact>Design</Label>
+                                    <Label compact>Marketing</Label>
+                                </Item.Extra>
+                                <Item.Description>
+                                    { long_description }
+                                </Item.Description>
+                            </Item.Content>
+                        </Item>
+                    </Item.Group>
+                </Segment>
+                { <Tabs orgMembers={ users } sessions={ sessions } /> }
+            </Container>
         )
     }
 };
