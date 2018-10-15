@@ -6,8 +6,12 @@ const OrgListItem = ({ org, getOneOrg, history, addOrgUser, userId }) => {
         <Item onClick={ () => getOneOrg(org.id, org.name, history) } >
             <Item.Image size='small' src={ org.logo_img_url } />
             <Item.Content verticalAlign='middle'>
-                <Item.Header>{ org.name }</Item.Header>
-                <Item.Description>{ org.short_description }</Item.Description>
+                <Item.Header>
+                    { org.name }
+                </Item.Header>
+                <Item.Description>
+                    { org.short_description }
+                </Item.Description>
             </Item.Content>
             <Item.Content>
                 <Item.Extra>

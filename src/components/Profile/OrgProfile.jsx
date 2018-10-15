@@ -17,7 +17,15 @@ class OrgProfile extends Component {
     }
 
     render() {
-        const { logo_img_url, name, short_description, long_description, users, sessions } = this.props.currentOrg
+        const { 
+            logo_img_url,
+            name,
+            short_description,
+            long_description,
+            users,
+            sessions 
+        } = this.props.currentOrg
+        
         return (
             <Container>
                 <Segment>
