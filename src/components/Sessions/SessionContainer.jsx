@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Container, Segment } from 'semantic-ui-react';
 import SessionHost from './SessionHost'
 import SessionDetails from './SessionDetails'
 import { usersActions } from '../../state/actions';
@@ -40,17 +40,17 @@ class SessionContainer extends Component {
 
             {/* Main profile */}
             { this.props.sessions.map((session, i) => <SessionHost key={ i } session={ session } />) }
-        
+
             </Grid.Row>
 
         </Grid.Column>
 
 
-        {/* Main right section */}        
+        {/* Main right section */}
         <Grid.Column>
             { this.props.sessions.map((session, i) => <SessionDetails key={ i } session={ session } />) }
         </Grid.Column>
-  
+
   </Grid.Row>
 </Grid>
 </Segment>
@@ -62,8 +62,8 @@ class SessionContainer extends Component {
 };
 
 const mapStateToProps = (state) => {
-    return { 
-        
+    return {
+
     }
 };
 
