@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Card, Image, Grid, Label, Button, Item, Header } from 'semantic-ui-react';
+import { Card, Image, Grid, Label, Button, Item, Header, Segment, Container, Divider, Popup } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
 
 const {  } = usersActions;
 
-class SessionCard extends Component {
+class SessionHost extends Component {
     constructor(props) {
         super(props)
     }
@@ -29,9 +29,9 @@ class SessionCard extends Component {
         return (         
             <Item.Group>
                   <Item>
-                    <Item.Content>
-                      <Image floated='left' size='tiny' src= { profile_img_url } />
-                      <Header>
+                  <Item.Image src= { profile_img_url } size='tiny' />
+                    <Item.Content >
+                    <Header>
                       { first_name } { last_name }
                     <Header.Subheader> { short_description }</Header.Subheader>
                       </Header>
@@ -39,16 +39,24 @@ class SessionCard extends Component {
                         <Label size='tiny'>Product</Label>
                         <Label size='tiny'>Design</Label>
                         <Label size='tiny'>Marketing</Label>
+                        <Label size='tiny'>Product</Label>
+                        <Label size='tiny'>Design</Label>
+                        <Label size='tiny'>Marketing</Label>
                       </Item.Meta>
-                      <Divider hidden />
-                      <Item.Description>
-                      { long_description }
+                   {/* <Item.Description>
+                      
                       </Item.Description>
-                      <Item.Extra>
-                        {/* <Button floated='right' primary>
+                      <Button floated='right' primary>
                           Full Profile
                           <Icon name='right chevron' />
                         </Button> */}
+                      <Item.Extra>
+                      <Popup
+                        trigger={<Button content='Full Bio' size='mini' basic color='blue' compact/>}
+                        content={ long_description }
+                        on='hover'
+                        hideOnScroll
+                        />
                       </Item.Extra>
                     </Item.Content>
                   </Item>
@@ -66,4 +74,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionCard));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionHost));

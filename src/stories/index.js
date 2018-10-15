@@ -41,7 +41,7 @@ import { setAddon, storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
-import JSXAddon from 'storybook-addon-jsx';
+
 
 
 
@@ -199,6 +199,7 @@ storiesOf('createSession', module)
 .add('createSession', () =>(
   <Container>
     <Form>
+      
         <Form.Group widths='equal'>
           <Form.Input fluid label='First name' placeholder='First name' />
           <Form.Input fluid label='Last name' placeholder='Last name' />
