@@ -1,7 +1,6 @@
 //React
 import React from 'react';
 
-
 //Semantic 
 import { 
   Button, 
@@ -23,47 +22,36 @@ import {
   Accordion
 } 
 from 'semantic-ui-react';
-
 import 'semantic-ui-css/semantic.min.css'
-
 
 //Stories
 import { storiesOf } from '@storybook/react';
-
 import SessionHost from './SessionHost';
 import SessionDetail from './SessionDetail';
-
 
 storiesOf('Session/SessionCard', module)
   .add('default', () => (
     
-  
-    <Container>
 
+    <Container>
       {/* Border */}
       <Segment padded>
-
         {/* Arrangement */}
         <Grid stackable columns='equal' verticalAlign='top'>
-
           {/* Row - Main two sections */}
           <Grid.Row stretched>
-
             {/* Main left section */}
             <Grid.Column>
-
               {/* Main Profile layout*/}
               <Grid.Row>
-      
                 {/* Main profile */}
-                
                 <Item.Group>
                   <Item>
                     <Item.Content>
                       <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
                       <Header>
                         Steve Sanders
-            <Header.Subheader>Product Manager at Amazon</Header.Subheader>
+                        <Header.Subheader>Product Manager at Amazon</Header.Subheader>
                       </Header>
                       <Item.Meta>
                         <Label size='tiny'>Product</Label>

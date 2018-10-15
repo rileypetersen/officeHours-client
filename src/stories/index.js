@@ -1,7 +1,6 @@
 //React
 import React, { Component } from 'react';
 
-
 //Semantic 
 import { 
   Button, 
@@ -37,56 +36,20 @@ import {
 //Stories
 import { setAddon, storiesOf } from '@storybook/react';
 
-// // Add-ons
+// Add-ons
 import { withKnobs, text, boolean, number } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
-import JSXAddon from 'storybook-addon-jsx';
 
-
-
+// Components
 import { ProfilePage } from './ProfilePage';
 import { SessionCard } from './SessionCard';
 import { SessionDetail } from './SessionDetail';
 import { SessionHost } from './SessionHost';
 
-
-
-
-// storiesOf('UserProfile2', module)
-// .add('default', () => (
-//  <Profile></Profile>
-  
-// ))
-
-
-// storiesOf('MeetingDetail', module)
-// .add('default', ()=>(
-// <Segment></Segment>
-// ))
-
-
-//Button
-// storiesOf('Button', module)
-//   .add('with text', () => 
-//     <Button onClick={action('clicked')}>Hello Button</Button>)
-//   .add('with some emoji', () => (
-//     <Button onClick={action('clicked')}>
-//       <span role="img" aria-label="so cool">
-//         😀 😎 👍 💯
-//       </span>
-//     </Button>
-//   ))
-//   .add('Primary', () => <Button primary>Test Primary</Button>),
-
-//User Profile
-
-
 //Profile Card
 // storiesOf('SessionCardWide', module)
 //   .add('default', () => (
 //     <Container>
-
 //       <Card centered fluid>
 //         <Grid columns="equal" padded relaxed>
 //           <Grid.Row divided="vertically">
@@ -122,51 +85,27 @@ import { SessionHost } from './SessionHost';
 //     </Container>
 //   ))
 
-
-
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
-
-
-
-
 storiesOf('SessionSegments2', module)
   .add('default', () => (
     <Container>
-
       {/* Border */}
       <Segment padded>
-
         {/* Arrangement */}
         <Grid stackable columns='equal' verticalAlign='top'>
-
           {/* Row - Main two sections */}
           <Grid.Row stretched>
-
             {/* Main left section */}
             <Grid.Column>
-
               {/* Main Profile layout*/}
               <Grid.Row>
-      
-                {/* Main profile */}
-                
-                {/* <Item.Group>
+                {/* Main profile
+                 <Item.Group>
                   <Item>
                     <Item.Content>
                       <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
                       <Header>
                         Steve Sanders
-            <Header.Subheader>Product Manager at Amazon</Header.Subheader>
+                      <Header.Subheader>Product Manager at Amazon</Header.Subheader>
                       </Header>
                       <Item.Meta>
                         <Label size='tiny'>Product</Label>
@@ -194,17 +133,12 @@ storiesOf('SessionSegments2', module)
         <Grid.Column>
           session details
         </Grid.Column>
-        
         </Grid.Row>
     </Grid>
     </Segment>
     </Container>
   ))
       
- 
-
-
-
 storiesOf('SessionCardStacked', module)
 .add('SessionCardStacked', () => (
   <Card>
@@ -235,12 +169,8 @@ var panes = [
 ]
 
 storiesOf('tabs', module)
-// .add('tabs', () => (
   .add('TabExampleSecondaryPointing', () => (
     <Tab menu={{ secondary: true, pointing: true }} panes={panes} />)),
-
-
-//Forms
 
 storiesOf('createProfile', module)
 .add('createProfile', () =>(
