@@ -4,8 +4,7 @@ import React from 'react';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
 
 //Semantic
-import { Container, Form, Input }
-from 'semantic-ui-react';
+import { Container, Form, Input } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css'
 
@@ -19,33 +18,33 @@ storiesOf('Calendars/CreateSession', module)
             <Form.Group widths='equal'>
                 <Form.Field>
                     <DateInput
-                        label='Choose a date:'
+                        label='Date:'
                         required
                         name="date"
                         placeholder="Date"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <TimeInput
-                        label='Choose a starting time:'
+                        label='Time:'
                         required
                         name="time"
                         placeholder="Time"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <TimeInput
-                        label='Choose a duration:'
+                        label='Duration:'
                         required
                         name="time"
                         placeholder="Duration"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
             </Form.Group>
         </Form>
