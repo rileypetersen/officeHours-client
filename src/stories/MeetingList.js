@@ -7,7 +7,8 @@ import {
   Label, 
   Container,
   Item,
-  Segment} 
+  Segment,
+Header} 
 from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css'

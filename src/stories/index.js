@@ -46,8 +46,8 @@ import JSXAddon from 'storybook-addon-jsx';
 
 
 import { ProfilePage } from './ProfilePage';
-import { SessionCard } from './SessionCard';
-import { SessionDetail } from './SessionDetail';
+import { SessionCard } from './SessionContainer';
+import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
 
 

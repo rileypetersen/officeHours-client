@@ -40,6 +40,9 @@ storiesOf('Session/SessionCard/SessionHost', module)
                         <Label size='tiny'>Product</Label>
                         <Label size='tiny'>Design</Label>
                         <Label size='tiny'>Marketing</Label>
+                        <Label size='tiny'>Product</Label>
+                        <Label size='tiny'>Design</Label>
+                        <Label size='tiny'>Marketing</Label>
                       </Item.Meta>
                       <Divider hidden />
                       <Item.Description>
@@ -57,4 +60,4 @@ storiesOf('Session/SessionCard/SessionHost', module)
                 </Container>
     ))
 
-    
+

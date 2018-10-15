@@ -6,7 +6,7 @@ function request(path, method = 'get', body = null) {
 	if (token) bearerToken = `Bearer ${token}`;
 	return axios({
 		method: method,
-		url: `http://localhost:3000/api${path}`,
+		url: `http://localhost:8080/api${path}`,
 		headers: {
 			'Content-Type': 'application/json',
 			'Accept': 'application/json',
