@@ -42,8 +42,8 @@ import { action } from '@storybook/addon-actions';
 
 // Components
 import { ProfilePage } from './ProfilePage';
-import { SessionCard } from './SessionCard';
-import { SessionDetail } from './SessionDetail';
+import { SessionCard } from './SessionContainer';
+import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
 
 //Profile Card
@@ -127,15 +127,15 @@ storiesOf('SessionSegments2', module)
                 </Item.Group> */}
               </Grid.Row>
               <Grid.Row>
-      {/* Accordion */}
-        </Grid.Row>
-        </Grid.Column>
-        <Grid.Column>
-          session details
-        </Grid.Column>
-        </Grid.Row>
-    </Grid>
-    </Segment>
+            {/* Accordion */}
+              </Grid.Row>
+            </Grid.Column>
+            <Grid.Column>
+              session details
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
     </Container>
   ))
       
