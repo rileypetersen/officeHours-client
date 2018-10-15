@@ -14,18 +14,18 @@ const OrgListItem = ({ org, getOneOrg, history, addOrgUser, removeOrgUser, userI
                 </Item.Description>
             </Item.Content>
             <Item.Content>
-                <Item.Extra>
+            </Item.Content>
+                {/* <Item.Extra>
                     { org.joined ? 
-                        <Button onClick={ () => addOrgUser(org.id, { user_id: userId, organization_id: org.id }) } floated='right'>
-                            Join
-                        </Button>
-                    :
                         <Button onClick={ () => removeOrgUser(org.id, { user_id: userId, organization_id: org.id }) } floated='right'>
                             Leave
                         </Button>
+                    :
+                        <Button onClick={ () => addOrgUser(org.id, { user_id: userId, organization_id: org.id }) } floated='right'>
+                            Join
+                        </Button>
                     }
-                </Item.Extra>
-            </Item.Content>
+                </Item.Extra> */}
         </Item>
     )
 }

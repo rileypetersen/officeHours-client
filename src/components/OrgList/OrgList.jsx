@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Item, Grid, Form, Segment } from 'semantic-ui-react';
 import OrgListItem from './OrgListItem'
 import { orgsActions } from '../../state/actions';
-const { getAllOrgs, getOneOrg, addOrgUser } = orgsActions;
+const { getAllOrgs, getOneOrg, addOrgUser, removeOrgUser } = orgsActions;
 
 class OrgList extends Component {
     constructor(props) {
@@ -23,7 +23,11 @@ class OrgList extends Component {
                     <Form size='large' onSubmit={ this.handleLogin }>
                         <Segment raised>
                             <Item.Group divided link>
-                                { this.props.orgs ? this.props.orgs.map((org, i) => < OrgListItem key={ i } history={ this.props.history } getOneOrg={ this.props.getOneOrg } addOrgUser={ this.props.addOrgUser } userId={ this.props.userId } org={ org } />) : '' }
+                                { this.props.orgs ? 
+                                    this.props.orgs.map((org, i) => <OrgListItem key={ i } history={ this.props.history } getOneOrg={ this.props.getOneOrg } addOrgUser={ this.props.addOrgUser } removeOrgUser={ this.props.removeOrgUser } userId={ this.props.userId } org={ org } />) 
+                                : 
+                                    null
+                                }
                             </Item.Group>
                         </Segment>
                     </Form>
@@ -40,10 +44,11 @@ const mapStateToProps = (state) => {
         getOneOrg: state.orgsReducers.getOneOrg,
         usersOrgs: state.authReducers.user.organizations,
         addOrgUser: state.orgsReducers.addOrgUser,
+        removeOrgUser: state.orgsReducers.removeOrgUser,
         userId: state.authReducers.user.id
     }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({ getAllOrgs, getOneOrg, addOrgUser }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ getAllOrgs, getOneOrg, addOrgUser, removeOrgUser }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(OrgList));
