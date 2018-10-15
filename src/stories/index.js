@@ -1,14 +1,14 @@
 //React
 import React, { Component } from 'react';
 
-//Semantic 
-import { 
-  Button, 
-  Card, 
-  Icon, 
-  Image, 
-  Label, 
-  Tab, 
+//Semantic
+import {
+  Button,
+  Card,
+  Icon,
+  Image,
+  Label,
+  Tab,
   Form,
   Input,
   Container,
@@ -20,7 +20,7 @@ import {
   Divider,
   Header,
   Accordion
-} 
+}
 from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css'
@@ -45,6 +45,7 @@ import { ProfilePage } from './ProfilePage';
 import { SessionCard } from './SessionContainer';
 import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
+import { CreateSession } from './CreateSession';
 
 //Profile Card
 // storiesOf('SessionCardWide', module)
@@ -183,7 +184,7 @@ storiesOf('createProfile', module)
         <Form.Group widths='equal'>
           <Form.Input label='Title' placeholder='Product Designer at Amazon' />
           <Form.Input label='Linkedin' placeholder='http://www.linkedin.com/in/...' />
-        </Form.Group>  
+        </Form.Group>
         <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
         <Form.Dropdown  label='Tags' placeholder='Tag' fluid multiple search selection options={[
           {key: "kills", value: 'kills', text: "kills"},
@@ -222,7 +223,7 @@ storiesOf('createSession', module)
         <Form.Group widths='equal'>
           <Form.Input label='Title' placeholder='Product Designer at Amazon' />
           <Form.Input label='Linkedin' placeholder='http://www.linkedin.com/in/...' />
-        </Form.Group>  
+        </Form.Group>
         <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
         <Form.Dropdown  label='Tags' placeholder='Tag' fluid multiple search selection options={[
           {key: "kills", value: 'kills', text: "kills"},
