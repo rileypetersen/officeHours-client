@@ -46,8 +46,8 @@ import JSXAddon from 'storybook-addon-jsx';
 
 
 import { ProfilePage } from './ProfilePage';
-import { SessionCard } from './SessionCard';
-import { SessionDetail } from './SessionDetail';
+import { SessionCard } from './SessionContainer';
+import { SessionDetail } from './MeetingList';
 import { SessionHost } from './SessionHost';
 
 
@@ -114,94 +114,8 @@ import { SessionHost } from './SessionHost';
 //                 <Button basic color='green'>
 //                   Approve
 //                 </Button>
-//               </Card.Content>
-//             </Grid.Column>
-//           </Grid.Row>
-//         </Grid>
-//       </Card>
-//     </Container>
-//   ))
+//             
 
-
-
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  ////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-
-
-
-
-
-storiesOf('SessionSegments2', module)
-  .add('default', () => (
-    <Container>
-
-      {/* Border */}
-      <Segment padded>
-
-        {/* Arrangement */}
-        <Grid stackable columns='equal' verticalAlign='top'>
-
-          {/* Row - Main two sections */}
-          <Grid.Row stretched>
-
-            {/* Main left section */}
-            <Grid.Column>
-
-              {/* Main Profile layout*/}
-              <Grid.Row>
-      
-                {/* Main profile */}
-                
-                {/* <Item.Group>
-                  <Item>
-                    <Item.Content>
-                      <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                      <Header>
-                        Steve Sanders
-            <Header.Subheader>Product Manager at Amazon</Header.Subheader>
-                      </Header>
-                      <Item.Meta>
-                        <Label size='tiny'>Product</Label>
-                        <Label size='tiny'>Design</Label>
-                        <Label size='tiny'>Marketing</Label>
-                      </Item.Meta>
-                      <Divider hidden />
-                      <Item.Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </Item.Description>
-                      <Item.Extra>
-                        <Button floated='right' primary>
-                          Full Profile
-                          <Icon name='right chevron' />
-                        </Button>
-                      </Item.Extra>
-                    </Item.Content>
-                  </Item>
-                </Item.Group> */}
-              </Grid.Row>
-              <Grid.Row>
-      {/* Accordion */}
-        </Grid.Row>
-        </Grid.Column>
-        <Grid.Column>
-          session details
-        </Grid.Column>
-        
-        </Grid.Row>
-    </Grid>
-    </Segment>
-    </Container>
-  ))
-      
- 
 
 
 

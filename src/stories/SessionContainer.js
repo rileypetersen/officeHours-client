@@ -31,7 +31,12 @@ import 'semantic-ui-css/semantic.min.css'
 import { storiesOf } from '@storybook/react';
 
 import SessionHost from './SessionHost';
-import SessionDetail from './SessionDetail';
+import SessionDetail from './MeetingList';
+
+// class SessionCard extends Component {
+//   constructor(props) {
+//       super(props)
+//   }
 
 
 storiesOf('Session/SessionCard', module)
@@ -57,13 +62,15 @@ storiesOf('Session/SessionCard', module)
       
                 {/* Main profile */}
                 
+              
+                
                 <Item.Group>
                   <Item>
                     <Item.Content>
-                      <Image floated='left' size='tiny' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+                      <Image floated='left' size='tiny' src= 'https://react.semantic-ui.com/images/avatar/large/steve.jpg'/>
                       <Header>
-                        Steve Sanders
-            <Header.Subheader>Product Manager at Amazon</Header.Subheader>
+                      { first_name } { last_name }
+                    <Header.Subheader> { short_description }</Header.Subheader>
                       </Header>
                       <Item.Meta>
                         <Label size='tiny'>Product</Label>
@@ -72,17 +79,19 @@ storiesOf('Session/SessionCard', module)
                       </Item.Meta>
                       <Divider hidden />
                       <Item.Description>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      { long_description }
                       </Item.Description>
                       <Item.Extra>
-                        <Button floated='right' primary>
+                        {/* <Button floated='right' primary>
                           Full Profile
                           <Icon name='right chevron' />
-                        </Button>
+                        </Button> */}
                       </Item.Extra>
                     </Item.Content>
                   </Item>
                 </Item.Group>
+
+
               </Grid.Row>
               <Grid.Row>
       {/* Accordion */}

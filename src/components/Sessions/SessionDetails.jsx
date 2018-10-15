@@ -17,7 +17,6 @@ class SessionCard extends Component {
     }
 
     render() {
-        console.log (this.props.session.host)
         let meetings = this.props.session.meetings || []
         let { date, location } = this.props.session
         let profile_img_url = this.props.session.host.profile_img_url || 'http://profilepicturesdp.com/wp-content/uploads/2018/06/default-profile-picture-circle-5.png'
