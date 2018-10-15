@@ -33,16 +33,14 @@ class SessionDetails extends Component {
                 <Header>
                 { moment(date).format('dddd, MMMM Do') }
                 <Header.Subheader> { location }</Header.Subheader>
-                </Header>
-                
+                </Header>                
                 <Item.Extra>
                 { meetings.length ? meetings.map((meeting, i) => <Button key={ i } color="green" size="mini" compact>{ moment(meetings.start_time).format('h:mm a')}</Button>) : <Button color="green" size="mini" compact>n/a</Button> }
                 </Item.Extra>
               </Item.Content>
             </Item>
           </Item.Group>
-        )
-    }
+        )    }
 };
 
 const mapStateToProps = (state) => {
