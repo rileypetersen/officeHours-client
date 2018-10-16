@@ -4,7 +4,7 @@ const {
 	CREATE_SESSION_PENDING,
 	CREATE_SESSION_SUCCESS,
 	CREATE_SESSION_FAILED
-} = authActions
+} = sessionsActions
 
 let INITIAL_STATE = {
 	isLoading: false,
