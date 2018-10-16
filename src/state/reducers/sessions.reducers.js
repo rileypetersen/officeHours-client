@@ -8,7 +8,7 @@ const {
 
 let INITIAL_STATE = {
 	isLoading: false,
-	showSessionError: false
+	showSessionCreateError: false
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -16,9 +16,9 @@ export default (state = INITIAL_STATE, action) => {
 		case CREATE_SESSION_PENDING:
 			return { ...state, isLoading: true }
 		case CREATE_SESSION_SUCCESS:
-			return { ...state, isLoading: false, isLoggedIn: true, showSessionError: false }
+			return { ...state, isLoading: false, isLoggedIn: true, showSessionCreateError: false }
 		case CREATE_SESSION_FAILED:
-			return { ...state, showSessionError: true }
+			return { ...state, showSessionCreateError: true }
 		
 		default:
 			return state
