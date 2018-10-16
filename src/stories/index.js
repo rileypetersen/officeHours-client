@@ -216,6 +216,7 @@ storiesOf('createSession', module)
 .add('createSession', () =>(
   <Container>
     <Form>
+      
         <Form.Group widths='equal'>
           <Form.Input fluid label='First name' placeholder='First name' />
           <Form.Input fluid label='Last name' placeholder='Last name' />

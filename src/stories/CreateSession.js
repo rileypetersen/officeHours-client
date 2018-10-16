@@ -18,32 +18,33 @@ storiesOf('Calendars/CreateSession', module)
             <Form.Group widths='equal'>
                 <Form.Field>
                     <DateInput
-                        label='Choose a date:'
+                        label='Date:'
                         required
                         name="date"
                         placeholder="Date"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <TimeInput
-                        label='Choose a starting time:'
+                        label='Time:'
                         required
                         name="time"
                         placeholder="Time"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <TimeInput
-                        label='Choose a duration:'
+                        label='Duration:'
+                        required
                         name="time"
                         placeholder="Duration"
                         value=""
                         iconPosition="left"
-                        />
+                    />
                 </Form.Field>
                 <Form.Field>
                     <label>Location</label>
