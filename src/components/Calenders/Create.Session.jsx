@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Container, Form, Input, Button, Checkbox } from 'semantic-ui-react';
+import { Container, Form, Button, Checkbox } from 'semantic-ui-react';
 import { DateInput, TimeInput } from 'semantic-ui-calendar-react';
 import { sessionsActions } from '../../state/actions';
 
-const {  } = sessionsActions;
+const { createSession } = sessionsActions;
 
 class CreateSession extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class CreateSession extends Component {
 
     handleSubmit = async (event) => {
     	event.preventDefault();
-    	await this.props.userLogin({
+    	await this.props.createSession({
             organization_id: null,
             organizer_id: null,
             host_id: null,
@@ -116,10 +116,10 @@ class CreateSession extends Component {
 
 const mapStateToProps = (state) => {
     return {
-
+        showSessionCreateError: state.sessionReducers.showSessionCreateError
     }
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ createSession }, dispatch);
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateSession));
