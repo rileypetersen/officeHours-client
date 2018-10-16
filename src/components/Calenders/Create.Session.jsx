@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Grid, Segment, Container, Divider } from 'semantic-ui-react';
-import SessionHost from './SessionHost'
-import SessionDetails from './SessionDetails'
-import Session from './Session'
+import { Form, Input } from 'semantic-ui-react';
 import { usersActions } from '../../state/actions';
 
 const {  } = usersActions;
 
-class SessionContainer extends Component {
+class CreateSession extends Component {
     constructor(props) {
         super(props)
     }
 
     componentDidMount = async () => {
+
     }
 
     render() {
-        console.log(this.props.sessions)
         return (
-            <Container>            
-                {this.props.sessions.map((session, i) => <Session key={i} session={session} />)}
-            </Container>
+            <Form>
+              <Form.Field required>
+                <label>Last name</label>
+                <Input placeholder='Full name' />
+              </Form.Field>
+            </Form>
         )
     }
 };
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({  }, dispatch);
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionContainer));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CreateSession));
