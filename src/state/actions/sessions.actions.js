@@ -7,7 +7,7 @@ export const createSession = (body, history) => {
 	return async (dispatch) => {
 		try {
 			dispatch({ type: CREATE_SESSION_PENDING });
-			const response = await sessionsModel.createSession(body, history);
+			const response = await sessionsModel.createSession(body);
 			dispatch({ type: CREATE_SESSION_SUCCESS, payload: response.data });
 		} catch (err) {
 			dispatch({ type: CREATE_SESSION_FAILED, payload: err.response.data.message });
